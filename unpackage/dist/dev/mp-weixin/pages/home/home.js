@@ -97,10 +97,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var render = function () {}
-var staticRenderFns = []
-var recyclableRender
 var components
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -129,6 +134,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -237,7 +250,6 @@ var _default =
       var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
       var curRoute = routes[routes.length - 1].route; //获取当前页面路由
       var curParam = routes[routes.length - 1].options; //获取路由参数
-      curParam.addElement('to_user_id', '19878');
       console.log("当前页面的是routes" + routes);
       console.log("当前页面的是curRoute" + curRoute);
       console.log("当前页面的是curParam" + curParam);

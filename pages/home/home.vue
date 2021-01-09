@@ -1,9 +1,9 @@
 <template>
-	<view style="background-color:white;width:100%;height:100%;min-height:712px">
+	<view style="overflow:auto;background-color:green;width:100%;height:auto;min-height:660px">
 			
-			<view style="overflow:auto;background-color:white;width:100%;height:650px;" >
-				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 10 && index > 0">
-					<view style="overflow:auto;width:20%;min-height:50px;background-color:white;height:auto;float:left">
+			<view style="overflow:auto;background-color:blue;width:100%;height:auto;min-height:00px" >
+				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 13 && index > 0">
+					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
 						<image v-bind:src="['http://www.wetalk.ltd/' + infoPerson.head_url]" style="width:50px;height:45px"></image>
 					</view>
 					<view style="width:80%;height:50px;background-color:white;float:left">
@@ -11,33 +11,36 @@
 								{{	infoPerson.username  }}
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
-							<p style="color:grey">{{	infoPerson.mess_content  }}</p>	
+							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
 						</view>
 					</view>
 					 <!--分割线-->
 					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				</view>
-				
-			<view style="background-color:red;width:100%;height:100%;min-height:50px">
-					<view v-on:click="to_news_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-							<p style="color:black" align="middle">消息</p>
-					</view>
+		
+	</view>
+	
+	
+	<view style="background-color:red;width:100%;height:100%;min-height:50px">
+		<!--底部信息-->
+			<view v-on:click="to_news_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+					<p style="color:black" align="middle">消息</p>
+			</view>
+			
+			<view v-on:click="submitSelectMess"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+				<navigator url="../photo/photo">
+					<p style="color:black" align="middle">好友</p>
 					
-					<view v-on:click="submitSelectMess"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-						<navigator url="../photo/photo">
-							<p style="color:black" align="middle">好友</p>
-							
-						</navigator>
-					</view>
-					
-					<view style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-							<p style="color:black" align="middle">新鲜事</p>
-					</view>
-				
-					
-					<view v-on:click="to_setting_fun()"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-							<p style="color:black" align="middle">我的</p>
-					</view>
+				</navigator>
+			</view>
+			
+			<view style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+					<p style="color:black" align="middle">新鲜事</p>
+			</view>
+		
+			
+			<view v-on:click="to_setting_fun()"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+					<p style="color:black" align="middle">我的</p>
 			</view>
 	</view>
 </template>

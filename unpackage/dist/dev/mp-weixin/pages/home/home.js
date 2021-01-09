@@ -175,6 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -193,6 +194,14 @@ var _default =
   },
 
   methods: {
+
+    enterChat: function enterChat(to_user_id) {
+      this.submitSelectMess(to_user_id);
+      uni.navigateTo({
+        url: '../home/home?to_user_id=' + to_user_id });
+
+    },
+
     submitSelectTalkPerson: function submitSelectTalkPerson() {var _this = this;
       uni.request({
         url: 'http://localhost/AppSelectTalkPerson?user_id=191',
@@ -228,12 +237,13 @@ var _default =
       var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
       var curRoute = routes[routes.length - 1].route; //获取当前页面路由
       var curParam = routes[routes.length - 1].options; //获取路由参数
+      curParam.addElement('to_user_id', '19878');
       console.log("当前页面的是routes" + routes);
       console.log("当前页面的是curRoute" + curRoute);
       console.log("当前页面的是curParam" + curParam);
       console.log("当前页面的是curParam" + curParam.username);
       console.log("当前页面的是curParam" + curParam.password);
-
+      console.log("当前页面的是to_user_id" + curParam.to_user_id);
     },
 
     skip: function skip(words) {console.log("跳转到video" + words);
@@ -243,9 +253,9 @@ var _default =
 
     },
 
-    submitSelectMess: function submitSelectMess() {var _this2 = this;
+    submitSelectMess: function submitSelectMess(to_user_id) {var _this2 = this;
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectMess?to_user_id=224',
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id,
         // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
         method: 'GET',
         success: function success(res) {

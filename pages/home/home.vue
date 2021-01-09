@@ -2,13 +2,13 @@
 	<view style="overflow:auto;background-color:green;width:100%;height:auto;min-height:660px">
 			
 			<view style="overflow:auto;background-color:blue;width:100%;height:auto;min-height:00px" >
-				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 13 && index > 0">
+				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 14 && index > 0">
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
-						<image v-bind:src="['http://www.wetalk.ltd/' + infoPerson.head_url]" style="width:50px;height:45px"></image>
+		<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
 					</view>
 					<view style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
-								{{	infoPerson.username  }}
+							<p v-on:click="enterChat(infoPerson.user_id)">	{{	infoPerson.username  }} </p>
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
 							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
@@ -63,6 +63,14 @@
 		    },
 		
 		methods: {
+			
+			  enterChat(to_user_id){
+				    this.submitSelectMess(to_user_id)
+					uni.navigateTo({
+						url:'../home/home?to_user_id=' + to_user_id
+					})
+			  },
+			
 			   submitSelectTalkPerson(){
 				    uni.request({
 				    	url: 'http://localhost/AppSelectTalkPerson?user_id=191',
@@ -98,12 +106,13 @@
 				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
 				let curRoute = routes[routes.length - 1].route //获取当前页面路由
 				let curParam = routes[routes.length - 1].options; //获取路由参数
+				curParam.addElement('to_user_id' ,'19878')
 				console.log("当前页面的是routes" + routes)
 				console.log("当前页面的是curRoute" + curRoute)
 				console.log("当前页面的是curParam" + curParam)
 				console.log("当前页面的是curParam" + curParam.username)
 				console.log("当前页面的是curParam" + curParam.password)
-				
+				console.log("当前页面的是to_user_id" + curParam.to_user_id)
 			},
 			
 			skip(words){console.log("跳转到video" + words)
@@ -113,9 +122,9 @@
 			                 })
 			  },
 			
-			    submitSelectMess(){
+			    submitSelectMess(to_user_id){
 					uni.request({
-										url: 'http://www.wetalk.ltd/AppSelectMess?to_user_id=224',
+						url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id ,
 										// url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
 										method: 'GET',
 										success: (res) => {	

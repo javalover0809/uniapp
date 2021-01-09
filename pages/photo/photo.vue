@@ -1,14 +1,18 @@
 <template>
 	<view>
-		<view style="background-color:white;width:100%;min-height:700px;">
-			<view style="background-color:white;width:100%;height:100px;align-items:center;justify-content:center;display:flex">
+		<view style="background-color:white;width:100%;min-height:650px;">
+			<view style="background-color:white;width:100%;height:50px;align-items:center;justify-content:center;display:flex">
 				<p>选择你喜欢的照片</p>
+				<navigator url="../video/video">
+					<p>视频</p>
+				</navigator>
 			</view>
 			<view style="background-color:white;width:100%;height:500px;">
 				<view style="background-color:white;width:10%;height:500px;float:left">
 				</view>
 				<view style="background-color:white;width:80%;height:500px;float:left">
 						<view style="background-color:white;width:100%;height:100px;float:left">
+							
 						</view>
 						<view style="background-color:white;width:100%;height:400px;float:left">
 

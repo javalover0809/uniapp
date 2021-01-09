@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/photo/photo",
+    "pages/uploadPic/uploadPic",
     "pages/new/new",
     "pages/index/index",
     "pages/search/search",
     "pages/friend/friend",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/photo/photo"
   ],
   "subPackages": [],
   "window": {

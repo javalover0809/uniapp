@@ -57,7 +57,7 @@
 			
 				uni.request({
 					
-									url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+									url: 'http://localhost/AppSelectHeadUrl',
 									method: 'GET',
 									success: (res) => {	
 										 console.log(res.data)

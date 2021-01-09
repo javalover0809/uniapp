@@ -177,41 +177,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
@@ -223,15 +188,34 @@ var _default =
   },
   mounted: function mounted() {
 
-    this.submitSelectMess();
+    this.submitSelectMess(),
+    this.getUrl();
 
   },
 
   methods: {
+    getUrl: function getUrl() {
+      var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+      var curRoute = routes[routes.length - 1].route; //获取当前页面路由
+      var curParam = routes[routes.length - 1].options; //获取路由参数
+      console.log("当前的是");
+      console.log("当前页面的是routes" + routes);
+      console.log("当前页面的是curRoute" + curRoute);
+      console.log("当前页面的是curParam" + curParam);
+
+    },
+
+    skip: function skip(words) {console.log("跳转到video" + words);
+
+      uni.navigateTo({
+        url: '../photo/photo' });
+
+    },
+
     submitSelectMess: function submitSelectMess() {var _this = this;
       uni.request({
-        // url: 'http://www.wetalk.ltd/AppSelectMess?to_user_id=224',
-        url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+        url: 'http://www.wetalk.ltd/AppSelectMess?to_user_id=224',
+        // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
         method: 'GET',
         success: function success(res) {
           console.log(res.data);

@@ -1,1 +1,1 @@
-<view>这里进行登录</view>
+<view><view style="width:100%;height:600px;background-color:white;align-items:center;justify-content:center;display:flex;"><view data-event-opts="{{[['tap',[['login_fun',['$event']]]]]}}" bindtap="__e" class="_p">确定</view>{{''+login_response+''}}</view></view>

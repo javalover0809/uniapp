@@ -128,17 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -201,22 +191,92 @@ var _default =
 {
   data: function data() {
     return {
+      messDetail: null,
+      user_my_id: '191',
       allFriends: null };
 
 
   },
-
   mounted: function mounted() {
 
-    this.submitSelectFriend();
+    this.submitSelectFriend(),
+    this.getUrl();
 
   },
-  methods: {
-    submitSelectFriend: function submitSelectFriend() {var _this = this;
 
-      var user_id = this.getUrlVar('user_id');
-      axios.get('/selectFriend?user_id=' + user_id).then(function (response) {return _this.allFriends = response.data;}).catch(function (error) {console.log(error);});
+  methods: {
+
+    enterChat: function enterChat(to_user_id) {
+      this.submitSelectMess(to_user_id);
+      uni.navigateTo({
+        url: '../home/home?to_user_id=' + to_user_id });
+
+    },
+
+    submitSelectFriend: function submitSelectFriend() {var _this = this;
+      uni.request({
+        url: 'http://localhost/AppSelectFriend?user_id=191',
+        method: 'GET',
+        success: function success(res) {
+
+          console.log(res.data);
+          _this.allFriends = res.data;
+
+        } });
+
+
+
+
+    },
+
+
+
+    //跳转新鲜事
+    to_news_fun: function to_news_fun() {
+      uni.navigateTo({
+        url: '../home/home?username=' + '测试用户名username' + '&password=' + '测试密码password' });
+
+    },
+    //跳转设置
+    to_setting_fun: function to_setting_fun() {
+      uni.navigateTo({
+        url: '../setting/setting' });
+
+    },
+
+    getUrl: function getUrl() {
+      var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+      var curRoute = routes[routes.length - 1].route; //获取当前页面路由
+      var curParam = routes[routes.length - 1].options; //获取路由参数
+      console.log("当前页面的是routes" + routes);
+      console.log("当前页面的是curRoute" + curRoute);
+      console.log("当前页面的是curParam" + curParam);
+      console.log("当前页面的是curParam" + curParam.username);
+      console.log("当前页面的是curParam" + curParam.password);
+      console.log("当前页面的是to_user_id" + curParam.to_user_id);
+    },
+
+    skip: function skip(words) {console.log("跳转到video" + words);
+
+      uni.navigateTo({
+        url: '../photo/photo?username=' + '我是测试用户名' + '&password=' + '我的测试的密码' });
+
+    },
+
+    submitSelectMess: function submitSelectMess(to_user_id) {var _this2 = this;
+      uni.request({
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id,
+        // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+        method: 'GET',
+        success: function success(res) {
+          console.log(res.data);
+          _this2.messDetail = res.data;
+
+
+        } });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

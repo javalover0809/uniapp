@@ -4,10 +4,12 @@
 	
 	<view style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if=" index != 0 & index != 2 & index != 3 & index != 4 & index != 5 & index != 6">
+				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 12">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
+						
 						<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
+						
 					</view>
 					
 					
@@ -34,7 +36,8 @@
 			</view>
 			
 			<view v-on:click="submitSelectMess"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-				<navigator url="../photo/photo">
+				<navigator url="../friend/friend">
+					
 					<p style="color:black" align="middle">好友</p>
 					
 				</navigator>

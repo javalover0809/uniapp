@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/photo/photo",
+    "pages/new/new",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/friend/friend",
+    "pages/home/home"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "hello",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

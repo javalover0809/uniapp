@@ -9,9 +9,7 @@
 				</view>
 				<view style="background-color:white;width:80%;height:500px;float:left">
 						<view style="background-color:white;width:100%;height:100px;float:left">
-							
 						</view>
-						
 						<view style="background-color:white;width:100%;height:400px;float:left">
 
 							<view v-for="(BasInfo,index) in BasInfoList"  v-if="index == index_choose">									
@@ -55,8 +53,7 @@
 			
 				uni.request({
 					
-									url: 'http://localhost/AppSelectHeadUrl',
-									// url: 'www.wetalk.ltd/test',
+									url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
 									method: 'GET',
 									success: (res) => {	
 										 console.log(res.data)

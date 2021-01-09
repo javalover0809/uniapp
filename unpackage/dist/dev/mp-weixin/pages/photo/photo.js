@@ -169,8 +169,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var _default =
 {
   data: function data() {
@@ -190,8 +188,7 @@ var _default =
 
       uni.request({
 
-        url: 'http://localhost/AppSelectHeadUrl',
-        // url: 'www.wetalk.ltd/test',
+        url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
         method: 'GET',
         success: function success(res) {
           console.log(res.data);

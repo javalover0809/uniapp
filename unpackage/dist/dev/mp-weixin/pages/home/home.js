@@ -97,15 +97,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-}
-var recyclableRender = false
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
+var recyclableRender
+var components
 
 
 
@@ -182,26 +177,59 @@ var _default =
   data: function data() {
     return {
       messDetail: null,
-      user_my_id: '191' };
+      user_my_id: '191',
+      manageTalkPersons: null };
 
 
   },
   mounted: function mounted() {
 
-    this.submitSelectMess(),
+    this.submitSelectTalkPerson(),
     this.getUrl();
 
   },
 
   methods: {
+    submitSelectTalkPerson: function submitSelectTalkPerson() {var _this = this;
+      uni.request({
+        url: 'http://localhost/AppSelectTalkPerson?user_id=191',
+        method: 'GET',
+        success: function success(res) {
+
+          console.log(res.data);
+          _this.manageTalkPersons = res.data;
+
+        } });
+
+
+
+
+    },
+
+
+
+    //跳转新鲜事
+    to_news_fun: function to_news_fun() {
+      uni.navigateTo({
+        url: '../home/home?username=' + '测试用户名username' + '&password=' + '测试密码password' });
+
+    },
+    //跳转设置
+    to_setting_fun: function to_setting_fun() {
+      uni.navigateTo({
+        url: '../setting/setting' });
+
+    },
+
     getUrl: function getUrl() {
       var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
       var curRoute = routes[routes.length - 1].route; //获取当前页面路由
       var curParam = routes[routes.length - 1].options; //获取路由参数
-      console.log("当前的是");
       console.log("当前页面的是routes" + routes);
       console.log("当前页面的是curRoute" + curRoute);
       console.log("当前页面的是curParam" + curParam);
+      console.log("当前页面的是curParam" + curParam.username);
+      console.log("当前页面的是curParam" + curParam.password);
 
     },
 
@@ -212,14 +240,14 @@ var _default =
 
     },
 
-    submitSelectMess: function submitSelectMess() {var _this = this;
+    submitSelectMess: function submitSelectMess() {var _this2 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectMess?to_user_id=224',
         // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
         method: 'GET',
         success: function success(res) {
           console.log(res.data);
-          _this.messDetail = res.data;
+          _this2.messDetail = res.data;
 
 
         } });

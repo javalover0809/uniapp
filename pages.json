@@ -1,7 +1,7 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/uploadPic/uploadPic",
+			"path": "pages/home/home",
 			"style": {
 				"navigationBarTitleText": "主页"
 			}
@@ -44,7 +44,7 @@
             
         }
         ,{
-            "path" : "pages/home/home",
+            "path" : "pages/uploadPic/uploadPic",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -59,6 +59,15 @@
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
             }
             
         }

@@ -68,7 +68,7 @@
 					</view>
 					
 					<view v-on:click="submitSelectMess"  style="background-color:blue;width:20%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-						<navigator url="../photo/photo">
+						<navigator url="../login/login">
 							<p style="color:grey" align="middle">照片</p>
 						</navigator>
 					</view>

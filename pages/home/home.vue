@@ -73,7 +73,7 @@
 			skip(words){	        console.log("跳转到video" + words)
 			                
 			                 uni.navigateTo({
-			                     url: '../photo/photo'
+			                     url: '../photo/photo?username=' + '我是测试用户名' + '&password=' + '我的测试的密码'
 			                 })
 			  },
 			

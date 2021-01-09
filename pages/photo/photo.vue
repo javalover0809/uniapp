@@ -48,12 +48,27 @@
 		},
 		mounted () {
 		  
-		       this.choose()
+		       this.choose(),
+			   this.getUrl()
 				
 		   },
 				
 		methods: {
+			getUrl(){
+				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+				let curRoute = routes[routes.length - 1].route //获取当前页面路由
+				let curParam = routes[routes.length - 1].options; //获取路由参数
+				console.log("当前的是")
+				console.log("当前页面的是routes" + routes)
+				console.log("当前页面的是curRoute" + curRoute)
+				console.log("当前页面的是curParam" + curParam)
+				console.log("当前页面的是curParam" + curParam.username)
+				console.log("当前页面的是curParam" + curParam.password)
+				
+			},
+			
 			choose(){
+				
 			
 				uni.request({
 					

@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/new/new",
     "pages/index/index",
     "pages/search/search",
     "pages/friend/friend",
     "pages/uploadPic/uploadPic",
     "pages/photo/photo",
     "pages/login/login",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/news/news"
   ],
   "subPackages": [],
   "window": {

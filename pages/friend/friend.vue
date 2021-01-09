@@ -12,15 +12,15 @@
 						
 					</view>
 					
-					
 					<view style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
-							<p v-on:click="enterChat(infoPerson.user_id)">	{{	infoPerson.username  }} </p>
+							<p>	{{	infoPerson.username  }} </p>
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
 							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
 						</view>
 					</view>
+					
 					 <!--分割线-->
 					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				</view>
@@ -44,7 +44,11 @@
 			</view>
 			
 			<view style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-					<p style="color:black" align="middle">新鲜事</p>
+					<navigator url="../news/news">
+						
+						<p style="color:black" align="middle">新鲜事</p>
+						
+					</navigator>
 			</view>
 		
 			

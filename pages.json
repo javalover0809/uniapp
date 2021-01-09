@@ -8,15 +8,6 @@
 		}
 
         ,{
-            "path" : "pages/new/new",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "新的",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
             "path" : "pages/index/index",
             "style" :                                                                                    
             {
@@ -73,6 +64,15 @@
         }
         ,{
             "path" : "pages/setting/setting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/news/news",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

@@ -4,23 +4,23 @@
 	
 	<view style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 12">
+				<view v-for=" (content,index) in infoContents" v-if="index < 12">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
 						
-						<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
+						<image v-bind:src="[ 'http://www.wetalk.ltd/' + content.head_url ]" style="width:50px;height:45px"></image>
 						
 					</view>
 					
-					
 					<view style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
-							<p>	{{	infoPerson.username  }} </p>
+							<p>	{{	content.username  }} </p>
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
-							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
+							<p style="color:grey;font-size:10px">{{	content.content  }}</p>	
 						</view>
 					</view>
+					
 					 <!--分割线-->
 					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				</view>
@@ -72,13 +72,13 @@
 			return {
 				messDetail:null,
 				user_my_id:'191',
-				manageTalkPersons: null
+				infoContents: null
 				
 			}
 		},
 		 mounted () {
 		   
-		        this.submitSelectTalkPerson(),
+		        this.submitSelectContent(),
 				this.getUrl()
 		
 		    },
@@ -92,14 +92,14 @@
 					})
 			  },
 			
-			   submitSelectTalkPerson(){
+			   submitSelectContent(){
 				    uni.request({
-				    	url: 'http://localhost/AppSelectTalkPerson?user_id=191',
+				    	url: 'http://localhost/AppSelectContent',
 						method: 'GET',
 						success: (res) => {	
 							
 							 console.log(res.data)
-							 this.manageTalkPersons = res.data		 
+							 this.infoContents = res.data		 
 												
 						}
 						
@@ -140,21 +140,7 @@
 			                 uni.navigateTo({
 			                     url: '../photo/photo?username=' + '我是测试用户名' + '&password=' + '我的测试的密码'
 			                 })
-			  },
-			
-			    submitSelectMess(to_user_id){
-					uni.request({
-						url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id ,
-										// url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
-										method: 'GET',
-										success: (res) => {	
-											console.log(res.data)
-											 this.messDetail = res.data
-											 
-						
-										}
-									})
-				   }
+			  }
 			
 			}
 	}

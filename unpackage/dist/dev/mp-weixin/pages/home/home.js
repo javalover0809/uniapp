@@ -266,6 +266,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -307,7 +344,7 @@ var _default =
 
     submitSelectTalkPerson: function submitSelectTalkPerson() {var _this = this;
       uni.request({
-        url: 'http://localhost/AppSelectTalkPerson?user_id=191',
+        url: 'http://www.wetalk.ltd/AppSelectTalkPerson?user_id=191',
         method: 'GET',
         success: function success(res) {
 
@@ -323,7 +360,7 @@ var _default =
 
     submitSelectContent: function submitSelectContent() {var _this2 = this;
       uni.request({
-        url: 'http://localhost/AppSelectContent',
+        url: 'http://www.wetalk.ltd/AppSelectContent',
         method: 'GET',
         success: function success(res) {
 
@@ -338,7 +375,7 @@ var _default =
     },
     submitSelectFriend: function submitSelectFriend() {var _this3 = this;
       uni.request({
-        url: 'http://localhost/AppSelectFriend?user_id=191',
+        url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
         method: 'GET',
         success: function success(res) {
 
@@ -385,7 +422,15 @@ var _default =
       this.my_flag = true;
 
     },
+    scanCode: function scanCode() {
+      // 允许从相机和相册扫码
+      uni.scanCode({
+        success: function success(res) {
+          console.log('条码类型：' + res.scanType);
+          console.log('条码内容：' + res.result);
+        } });
 
+    },
 
 
     getUrl: function getUrl() {

@@ -28,7 +28,43 @@
 				</view>
 		
 
-		</view>
+	</view>
+	
+	<view v-if="false" style="background-color:white;width:100%;height:100%;min-height:662px">
+			
+				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 12">
+					
+					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
+						
+						<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
+						
+					</view>
+					
+					
+					<view style="width:80%;height:50px;background-color:white;float:left">
+						<view style="width:80%;min-height:25px;background-color:white;float:left">
+							<p>	{{	infoPerson.username  }} </p>
+						</view>
+						<view style="width:80%;height:25px;background-color:white;float:left">
+							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
+						</view>
+					</view>
+					 <!--分割线-->
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+				</view>
+		
+	
+	</view>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -92,6 +128,7 @@
 	<view v-else-if="my_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 		
 			个人资料
+			 <button type="primary" @click="scanCode()">扫一扫</button>
 	
 	</view>
 	
@@ -172,7 +209,7 @@
 			
 			   submitSelectTalkPerson(){
 				    uni.request({
-				    	url: 'http://localhost/AppSelectTalkPerson?user_id=191',
+				    	url: 'http://www.wetalk.ltd/AppSelectTalkPerson?user_id=191',
 						method: 'GET',
 						success: (res) => {	
 							
@@ -188,7 +225,7 @@
 				
 				submitSelectContent(){
 								    uni.request({
-								    	url: 'http://localhost/AppSelectContent',
+								    	url: 'http://www.wetalk.ltd/AppSelectContent',
 										method: 'GET',
 										success: (res) => {	
 											
@@ -203,7 +240,7 @@
 				 },
 				 submitSelectFriend(){
 				 				    uni.request({
-				 				    	url: 'http://localhost/AppSelectFriend?user_id=191',
+				 				    	url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
 				 						method: 'GET',
 				 						success: (res) => {	
 				 							
@@ -250,7 +287,15 @@
 				this.my_flag = true
 				
 			},
-
+			scanCode() {
+                 // 允许从相机和相册扫码
+                 uni.scanCode({
+                     success: function (res) {
+                         console.log('条码类型：' + res.scanType);
+                         console.log('条码内容：' + res.result);
+                     }
+                 });
+            },
 		
 			
 			getUrl(){

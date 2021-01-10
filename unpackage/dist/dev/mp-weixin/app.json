@@ -8,7 +8,8 @@
     "pages/photo/photo",
     "pages/login/login",
     "pages/setting/setting",
-    "pages/news/news"
+    "pages/news/news",
+    "pages/talk/talk"
   ],
   "subPackages": [],
   "window": {

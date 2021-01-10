@@ -271,43 +271,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
     return {
-      messDetail: null,
       user_my_id: '191',
 
       manageTalkPersons: null,
@@ -335,12 +302,6 @@ var _default =
 
   methods: {
 
-    enterChat: function enterChat(to_user_id) {
-      this.submitSelectMess(to_user_id);
-      uni.navigateTo({
-        url: '../home/home?to_user_id=' + to_user_id });
-
-    },
 
     submitSelectTalkPerson: function submitSelectTalkPerson() {var _this = this;
       uni.request({
@@ -393,14 +354,22 @@ var _default =
     //跳转消息
     mess_fun: function mess_fun() {
       this.mess_flag = true;
+      this.talk_flag = false;
       this.friend_flag = false;
       this.news_flag = false;
       this.my_flag = false;
 
     },
+    talk_fun: function talk_fun(user_id) {
+
+      uni.navigateTo({
+        url: '../talk/talk?to_user_id=' + user_id });
+
+    },
     //跳转好友
     friend_fun: function friend_fun() {
       this.mess_flag = false;
+      this.talk_flag = false;
       this.friend_flag = true;
       this.news_flag = false;
       this.my_flag = false;
@@ -409,6 +378,7 @@ var _default =
     //跳转新鲜事
     news_fun: function news_fun() {
       this.mess_flag = false;
+      this.talk_flag = false;
       this.friend_flag = false;
       this.news_flag = true;
       this.my_flag = false;
@@ -417,6 +387,7 @@ var _default =
 
     my_fun: function my_fun() {
       this.mess_flag = false;
+      this.talk_flag = false;
       this.friend_flag = false;
       this.news_flag = false;
       this.my_flag = true;
@@ -452,9 +423,9 @@ var _default =
 
     },
 
-    submitSelectMess: function submitSelectMess(to_user_id) {var _this4 = this;
+    submitSelectMess: function submitSelectMess(user_id) {var _this4 = this;
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id,
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + user_id,
         // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
         method: 'GET',
         success: function success(res) {

@@ -15,7 +15,7 @@
 					</view>
 					
 					
-					<view style="width:80%;height:50px;background-color:white;float:left">
+					<view v-on:click="talk_fun(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
 							<p>	{{	infoPerson.username  }} </p>
 						</view>
@@ -30,43 +30,11 @@
 
 	</view>
 	
-	<view v-if="false" style="background-color:white;width:100%;height:100%;min-height:662px">
-			
-				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 12">
-					
-					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
-						
-						<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
-						
-					</view>
-					
-					
-					<view style="width:80%;height:50px;background-color:white;float:left">
-						<view style="width:80%;min-height:25px;background-color:white;float:left">
-							<p>	{{	infoPerson.username  }} </p>
-						</view>
-						<view style="width:80%;height:25px;background-color:white;float:left">
-							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
-						</view>
-					</view>
-					 <!--分割线-->
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
-				</view>
-		
-	
-	</view>
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 			
@@ -172,7 +140,6 @@
 	export default {
 		data() {
 			return {
-				messDetail:null,
 				user_my_id:'191',
 				
 				manageTalkPersons: null,
@@ -200,12 +167,6 @@
 		
 		methods: {
 			
-			  enterChat(to_user_id){
-				    this.submitSelectMess(to_user_id)
-					uni.navigateTo({
-						url:'../home/home?to_user_id=' + to_user_id
-					})
-			  },
 			
 			   submitSelectTalkPerson(){
 				    uni.request({
@@ -258,14 +219,22 @@
 			//跳转消息
 			mess_fun(){
 				this.mess_flag = true
+				this.talk_flag = false
 				this.friend_flag = false
 				this.news_flag = false
 				this.my_flag = false
 				
 			},
+			talk_fun(user_id){
+				
+				uni.navigateTo({
+					url:'../talk/talk?to_user_id=' + user_id
+				})
+			},
 			//跳转好友
 			friend_fun(){
 				this.mess_flag = false
+				this.talk_flag = false
 				this.friend_flag = true
 				this.news_flag = false
 				this.my_flag = false
@@ -274,6 +243,7 @@
 			//跳转新鲜事
 		    news_fun(){
 				this.mess_flag = false
+				this.talk_flag = false
 				this.friend_flag = false
 				this.news_flag = true
 				this.my_flag = false
@@ -282,6 +252,7 @@
 			
 			my_fun(){
 				this.mess_flag = false
+				this.talk_flag = false
 				this.friend_flag = false
 				this.news_flag = false
 				this.my_flag = true
@@ -317,9 +288,9 @@
 			                 })
 			  },
 			
-			    submitSelectMess(to_user_id){
+			    submitSelectMess(user_id){
 					uni.request({
-						url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id ,
+						url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + user_id ,
 										// url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
 										method: 'GET',
 										success: (res) => {	

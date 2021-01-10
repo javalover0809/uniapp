@@ -1,8 +1,10 @@
 <template>
+
+
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
 	
 	
-	<view style="background-color:white;width:100%;height:100%;min-height:662px">
+	<view v-if="mess_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 			
 				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 12">
 					
@@ -29,41 +31,104 @@
 		</view>
 	
 	
+	
+	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+			
+				<view v-for=" (infoPerson,index) in allFriends" v-if="index < 12">
+					
+					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
+						
+						<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
+						
+					</view>
+					
+					<view style="width:80%;height:50px;background-color:white;float:left">
+						<view style="width:80%;min-height:25px;background-color:white;float:left">
+							<p>	{{	infoPerson.username  }} </p>
+						</view>
+						<view style="width:80%;height:25px;background-color:white;float:left">
+							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
+						</view>
+					</view>
+					
+					 <!--分割线-->
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+				</view>
+		
+
+	</view>	
+	
+	
+	
+	
+	<view v-else-if="news_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+			
+				<view v-for=" (content,index) in infoContents" v-if="index < 12">
+					
+					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
+						
+						<image v-bind:src="[ 'http://www.wetalk.ltd/' + content.head_url ]" style="width:50px;height:45px"></image>
+						
+					</view>
+					
+					<view style="width:80%;height:50px;background-color:white;float:left">
+						<view style="width:80%;min-height:25px;background-color:white;float:left">
+							<p>	{{	content.username  }} </p>
+						</view>
+						<view style="width:80%;height:25px;background-color:white;float:left">
+							<p style="color:grey;font-size:10px">{{	content.content  }}</p>	
+						</view>
+					</view>
+					
+					 <!--分割线-->
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+				</view>
+		
+	
+	</view>
+	
+	
+	
+	<view v-else-if="my_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+		
+			个人资料
+	
+	</view>
+	
 	<view style="background-color:red;width:100%;height:100%;min-height:50px">
 		<!--底部信息-->
-			<view v-on:click="to_news_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+			<view v-on:click="mess_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 					<p style="color:black" align="middle">消息</p>
 			</view>
 			
-			<view v-on:click="submitSelectMess"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-				<navigator url="../friend/friend">
+			<view v-on:click="friend_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+				
 					
 					<p style="color:black" align="middle">好友</p>
 					
-				</navigator>
 			</view>
 			
-			<view style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-				
-				<navigator url="../news/news">
-					
+			<view v-on:click="news_fun"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+							
 					<p style="color:black" align="middle">新鲜事</p>
 					
-				</navigator>
 			</view>
 		
 			
-			<view v-on:click="to_setting_fun()"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-					<navigator url="../news/news">
+			<view v-on:click="my_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 						
 						<p style="color:black" align="middle">我的</p>
 						
-					</navigator>
 			</view>
 	</view>
 
 
 </view>
+
+
+
+	
+
 </template>
 
 <script>
@@ -72,13 +137,25 @@
 			return {
 				messDetail:null,
 				user_my_id:'191',
-				manageTalkPersons: null
+				manageTalkPersons: null,
+				infoContents: null,
+				allFriends: null,
+				
+				mess_flag: true,
+				friend_flag: false,
+				news_flag: false,
+				my_flag: false
+				
+				
+				
 				
 			}
 		},
 		 mounted () {
 		   
 		        this.submitSelectTalkPerson(),
+				this.submitSelectFriend()	
+				this.submitSelectContent(),
 				this.getUrl()
 		
 		    },
@@ -107,21 +184,73 @@
 				    })
 				  
 			    },
+				
+				submitSelectContent(){
+								    uni.request({
+								    	url: 'http://localhost/AppSelectContent',
+										method: 'GET',
+										success: (res) => {	
+											
+											 console.log(res.data)
+											 this.infoContents = res.data		 
+																
+										}
+										
+										
+								    })
+								  
+				 },
+				 submitSelectFriend(){
+				 				    uni.request({
+				 				    	url: 'http://localhost/AppSelectFriend?user_id=191',
+				 						method: 'GET',
+				 						success: (res) => {	
+				 							
+				 							 console.log(res.data)
+				 							 this.allFriends = res.data		 
+				 												
+				 						}
+				 						
+				 						
+				 				    })
+				 				  
+				  },
 
-			
-			
+		
+			//跳转消息
+			mess_fun(){
+				this.mess_flag = true
+				this.friend_flag = false
+				this.news_flag = false
+				this.my_flag = false
+				
+			},
+			//跳转好友
+			friend_fun(){
+				this.mess_flag = false
+				this.friend_flag = true
+				this.news_flag = false
+				this.my_flag = false
+				
+			},
 			//跳转新鲜事
-			to_news_fun(){
-				uni.navigateTo({
-					url:'../home/home?username=' + '测试用户名username' + '&password=' + '测试密码password'
-				})
+		    news_fun(){
+				this.mess_flag = false
+				this.friend_flag = false
+				this.news_flag = true
+				this.my_flag = false
+				
 			},
-			//跳转设置
-			to_setting_fun(){
-				uni.navigateTo({
-					url:'../setting/setting'
-				})
+			
+			my_fun(){
+				this.mess_flag = false
+				this.friend_flag = false
+				this.news_flag = false
+				this.my_flag = true
+				
 			},
+
+		
 			
 			getUrl(){
 				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组

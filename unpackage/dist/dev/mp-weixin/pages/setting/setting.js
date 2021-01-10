@@ -179,41 +179,89 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      messDetail: null,
+      user_my_id: '191',
+      allFriends: null };
 
 
   },
+  mounted: function mounted() {
+
+    this.submitSelectFriend(),
+    this.getUrl();
+
+  },
+
   methods: {
 
-    uploadPic: function uploadPic() {
-      uni.chooseImage({
-        count: 1,
-        sizeType: ['copressed'],
-        success: function success(res) {
-          //因为有一张图片， 输出下标[0]， 直接输出地址
-          var imgFiles = res.tempFilePaths[0];
-          console.log(imgFiles);
-          // 上传图片
-          // 做成一个上传对象
-          var uper = uni.uploadFile({
-            // 需要上传的地址
-            url: 'http://demo.hcoder.net/index.php?c=uperTest',
-            // filePath  需要上传的文件
-            filePath: imgFiles,
-            name: 'file',
-            success: function success(res1) {
-              // 显示上传信息
-              console.log(res1);
-            } });
+    enterChat: function enterChat(to_user_id) {
+      this.submitSelectMess(to_user_id);
+      uni.navigateTo({
+        url: '../home/home?to_user_id=' + to_user_id });
 
-          // onProgressUpdate 上传对象更新的方法
-          uper.onProgressUpdate(function (res) {
-            // 进度条等于 上传到的进度
-            this.percent = res.progress;
-            console.log('上传进度' + res.progress);
-            console.log('已经上传的数据长度' + res.totalBytesSent);
-            console.log('预期需要上传的数据总长度' + res.totalBytesExpectedToSend);
-          });
+    },
+
+    submitSelectFriend: function submitSelectFriend() {var _this = this;
+      uni.request({
+        url: 'http://localhost/AppSelectFriend?user_id=191',
+        method: 'GET',
+        success: function success(res) {
+
+          console.log(res.data);
+          _this.allFriends = res.data;
+
+        } });
+
+
+
+
+    },
+
+
+
+    //跳转新鲜事
+    to_news_fun: function to_news_fun() {
+      uni.navigateTo({
+        url: '../home/home?username=' + '测试用户名username' + '&password=' + '测试密码password' });
+
+    },
+    //跳转设置
+    to_setting_fun: function to_setting_fun() {
+      uni.navigateTo({
+        url: '../setting/setting' });
+
+    },
+
+    getUrl: function getUrl() {
+      var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+      var curRoute = routes[routes.length - 1].route; //获取当前页面路由
+      var curParam = routes[routes.length - 1].options; //获取路由参数
+      console.log("当前页面的是routes" + routes);
+      console.log("当前页面的是curRoute" + curRoute);
+      console.log("当前页面的是curParam" + curParam);
+      console.log("当前页面的是curParam" + curParam.username);
+      console.log("当前页面的是curParam" + curParam.password);
+      console.log("当前页面的是to_user_id" + curParam.to_user_id);
+    },
+
+    skip: function skip(words) {console.log("跳转到video" + words);
+
+      uni.navigateTo({
+        url: '../photo/photo?username=' + '我是测试用户名' + '&password=' + '我的测试的密码' });
+
+    },
+
+    submitSelectMess: function submitSelectMess(to_user_id) {var _this2 = this;
+      uni.request({
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id,
+        // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+        method: 'GET',
+        success: function success(res) {
+          console.log(res.data);
+          _this2.messDetail = res.data;
+
+
         } });
 
     } } };exports.default = _default;

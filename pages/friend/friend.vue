@@ -52,8 +52,12 @@
 			</view>
 		
 			
-			<view v-on:click="to_setting_fun()"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-					<p style="color:black" align="middle">我的</p>
+			<view style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+					<navigator url="../setting/setting">
+						
+						<p style="color:black" align="middle">我的</p>
+						
+					</navigator>
 			</view>
 	</view>
 

@@ -201,19 +201,96 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       messDetail: null,
       user_my_id: '191',
-      manageTalkPersons: null };
+      manageTalkPersons: null,
+      infoContents: null,
+      allFriends: null,
+
+      mess_flag: true,
+      friend_flag: false,
+      news_flag: false,
+      my_flag: false };
+
+
+
 
 
   },
   mounted: function mounted() {
 
     this.submitSelectTalkPerson(),
+    this.submitSelectFriend();
+    this.submitSelectContent(),
     this.getUrl();
 
   },
@@ -243,20 +320,72 @@ var _default =
 
     },
 
+    submitSelectContent: function submitSelectContent() {var _this2 = this;
+      uni.request({
+        url: 'http://localhost/AppSelectContent',
+        method: 'GET',
+        success: function success(res) {
+
+          console.log(res.data);
+          _this2.infoContents = res.data;
+
+        } });
 
 
+
+
+    },
+    submitSelectFriend: function submitSelectFriend() {var _this3 = this;
+      uni.request({
+        url: 'http://localhost/AppSelectFriend?user_id=191',
+        method: 'GET',
+        success: function success(res) {
+
+          console.log(res.data);
+          _this3.allFriends = res.data;
+
+        } });
+
+
+
+
+    },
+
+
+    //跳转消息
+    mess_fun: function mess_fun() {
+      this.mess_flag = true;
+      this.friend_flag = false;
+      this.news_flag = false;
+      this.my_flag = false;
+
+    },
+    //跳转好友
+    friend_fun: function friend_fun() {
+      this.mess_flag = false;
+      this.friend_flag = true;
+      this.news_flag = false;
+      this.my_flag = false;
+
+    },
     //跳转新鲜事
-    to_news_fun: function to_news_fun() {
-      uni.navigateTo({
-        url: '../home/home?username=' + '测试用户名username' + '&password=' + '测试密码password' });
+    news_fun: function news_fun() {
+      this.mess_flag = false;
+      this.friend_flag = false;
+      this.news_flag = true;
+      this.my_flag = false;
 
     },
-    //跳转设置
-    to_setting_fun: function to_setting_fun() {
-      uni.navigateTo({
-        url: '../setting/setting' });
+
+    my_fun: function my_fun() {
+      this.mess_flag = false;
+      this.friend_flag = false;
+      this.news_flag = false;
+      this.my_flag = true;
 
     },
+
+
 
     getUrl: function getUrl() {
       var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
@@ -277,14 +406,14 @@ var _default =
 
     },
 
-    submitSelectMess: function submitSelectMess(to_user_id) {var _this2 = this;
+    submitSelectMess: function submitSelectMess(to_user_id) {var _this4 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + to_user_id,
         // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
         method: 'GET',
         success: function success(res) {
           console.log(res.data);
-          _this2.messDetail = res.data;
+          _this4.messDetail = res.data;
 
 
         } });

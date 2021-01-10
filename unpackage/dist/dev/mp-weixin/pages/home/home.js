@@ -327,6 +327,7 @@ var _default =
 
 
     },
+
     submitSelectFriend: function submitSelectFriend() {var _this3 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
@@ -353,12 +354,14 @@ var _default =
       this.my_flag = false;
 
     },
+
     talk_fun: function talk_fun(user_id) {
 
       uni.navigateTo({
         url: '../talk/talk?to_user_id=' + user_id });
 
     },
+
     //跳转好友
     friend_fun: function friend_fun() {
       this.mess_flag = false;

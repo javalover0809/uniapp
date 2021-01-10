@@ -197,6 +197,7 @@
 								    })
 								  
 				 },
+				 
 				 submitSelectFriend(){
 				 				    uni.request({
 				 				    	url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
@@ -223,12 +224,14 @@
 				this.my_flag = false
 				
 			},
+			
 			talk_fun(user_id){
 				
 				uni.navigateTo({
 					url:'../talk/talk?to_user_id=' + user_id
 				})
 			},
+			
 			//跳转好友
 			friend_fun(){
 				this.mess_flag = false

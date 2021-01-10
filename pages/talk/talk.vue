@@ -1,8 +1,8 @@
 <template>
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
-		<view style="background-color:white;width:100%;height:100%;min-height:662px">
+		<view style="background-color:white;width:100%;height:auto;min-height:662px">
 				
-					<view v-for=" (infoPerson,index) in messDetail" v-if="index < 12">
+					<view v-for=" (infoPerson,index) in messDetail" v-if="index < 15">
 						
 						<!--A对话-->
 						<view v-if="infoPerson.user_id != '191'">
@@ -41,17 +41,23 @@
 						</view>
 					
 		
-		</view>
-		<view style="background-color:white;width:100%;height:50px">
-			<view style="background-color:white;width:80%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
-				<input style="padding: 10rpx;font-size: 30rpx;border-radius:10px"   placeholder="输入消息..." />
 			</view>
+	  	</view>	
+		
+		<view style="background-color:white;width:100%;height:50px">
+			
+			<view style="background-color:white;width:80%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
+				 <input type="text" maxlength="11" v-model="login.phone"   
+				                    placeholder="输入消息..." @input="onKeyUserNameInput" class="is-input1 " /> 
+			
+			</view>
+			
 			<view style="background-color:green;width:20%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
 					<button type="default">发送</button>
 			</view>
 			
 		</view>
-	</view>
+
 	</view>
 </template>
 
@@ -59,6 +65,7 @@
 	export default {
 		data() {
 			return {
+				login: { phone: "",  password: "",  }, 
 				messDetail:null
 				
 			}
@@ -71,19 +78,26 @@
 		   },
 		
 		methods: {
+			onKeyUserNameInput: function(event) {  
+			                this.phone = event.target.value  
+							console.log("输入的数据是:" + this.phone)
+						
+			},  
 			
 			submitSelectMess(){
+				
+				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+				let curRoute = routes[routes.length - 1].route //获取当前页面路由
+				let curParam = routes[routes.length - 1].options; //获取路由参数
+				
 				uni.request({
-					url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + '224' ,
-									
-									method: 'GET',
-									success: (res) => {	
-										console.log(res.data)
-										 this.messDetail = res.data
-										 
-					
-									}
-								})
+					url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + curParam.to_user_id,
+					method: 'GET',
+					success: (res) => {	
+					  console.log(res.data)
+					  this.messDetail = res.data
+					  }
+				   })
 			   }
 			
 		}

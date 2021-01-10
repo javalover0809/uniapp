@@ -190,10 +190,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
+      login: { phone: "", password: "" },
       messDetail: null };
 
 
@@ -206,17 +213,24 @@ var _default =
   },
 
   methods: {
+    onKeyUserNameInput: function onKeyUserNameInput(event) {
+      this.phone = event.target.value;
+      console.log("输入的数据是:" + this.phone);
+
+    },
 
     submitSelectMess: function submitSelectMess() {var _this = this;
-      uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + '224',
 
+      var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+      var curRoute = routes[routes.length - 1].route; //获取当前页面路由
+      var curParam = routes[routes.length - 1].options; //获取路由参数
+
+      uni.request({
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + curParam.to_user_id,
         method: 'GET',
         success: function success(res) {
           console.log(res.data);
           _this.messDetail = res.data;
-
-
         } });
 
     } } };exports.default = _default;

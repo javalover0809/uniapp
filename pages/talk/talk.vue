@@ -47,9 +47,9 @@
 		<view style="background-color:white;width:100%;height:50px">
 			
 			<view style="background-color:white;width:80%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
-				 <input type="text" maxlength="11" v-model="login.phone"   
-				                    placeholder="输入消息..." @input="onKeyUserNameInput" class="is-input1 " /> 
-			
+				 
+				 <input type="text" maxlength="11" v-model="login.phone" placeholder="输入消息..." @input="onKeyUserNameInput" class="is-input1 " /> 
+
 			</view>
 			
 			<view style="background-color:green;width:20%;height:50px;float:left;align-items:center;justify-content:center;display:flex">

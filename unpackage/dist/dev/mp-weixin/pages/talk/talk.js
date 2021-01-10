@@ -173,6 +173,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -193,7 +199,7 @@ var _default =
     submitSelectMess: function submitSelectMess() {var _this = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + '224',
-        // url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+
         method: 'GET',
         success: function success(res) {
           console.log(res.data);

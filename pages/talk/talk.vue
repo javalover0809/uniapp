@@ -30,20 +30,26 @@
 						
 						
 						<view style="width:80%;height:50px;background-color:white;float:left">
-						      <view style="width:70%;height:50px;background-color:white;float:left">
+						     
+							  <view style="width:70%;height:50px;background-color:white;float:left">
 							  </view>
 							  <view style="width:30%;height:50px;background-color:white;float:right">
 								  <p style="color:grey;font-size:10px" align="right">{{	infoPerson.mess_content  }}</p>
 							  </view>
 									
-						
 						</view>
 						</view>
 					
 		
 		</view>
-		<view style="background-color:red;width:100%;height:100%;min-height:50px">
-			这里是输入信息框
+		<view style="background-color:white;width:100%;height:50px">
+			<view style="background-color:white;width:80%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
+				<input style="padding: 10rpx;font-size: 30rpx;border-radius:10px"   placeholder="输入消息..." />
+			</view>
+			<view style="background-color:green;width:20%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
+					<button type="default">发送</button>
+			</view>
+			
 		</view>
 	</view>
 </template>
@@ -68,7 +74,7 @@
 			submitSelectMess(){
 				uni.request({
 					url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + '224' ,
-									// url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+									
 									method: 'GET',
 									success: (res) => {	
 										console.log(res.data)

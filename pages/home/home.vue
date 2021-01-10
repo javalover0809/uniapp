@@ -24,17 +24,15 @@
 						</view>
 					</view>
 					 <!--分割线-->
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;">
+						
+					</view>
 				</view>
 		
 
 	</view>
 	
 	
-	
-	
-	
-
 	
 	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 			

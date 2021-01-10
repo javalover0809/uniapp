@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/home/home",
+    "pages/talk/talk",
     "pages/index/index",
     "pages/search/search",
     "pages/friend/friend",
@@ -9,7 +9,7 @@
     "pages/login/login",
     "pages/setting/setting",
     "pages/news/news",
-    "pages/talk/talk"
+    "pages/home/home"
   ],
   "subPackages": [],
   "window": {

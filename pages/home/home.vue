@@ -137,6 +137,7 @@
 			return {
 				messDetail:null,
 				user_my_id:'191',
+				
 				manageTalkPersons: null,
 				infoContents: null,
 				allFriends: null,

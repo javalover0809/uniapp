@@ -9,7 +9,8 @@
     "pages/login/login",
     "pages/setting/setting",
     "pages/news/news",
-    "pages/talk/talk"
+    "pages/talk/talk",
+    "pages/content/content"
   ],
   "subPackages": [],
   "window": {

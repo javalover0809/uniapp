@@ -1,7 +1,11 @@
 <template>
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
 		<view style="background-color:white;width:100%;height:auto;min-height:662px">
-				
+			
+					<view style="width:100%;min-height:50px;background-color:blue;height:auto;float:left">
+						
+					</view>
+			
 					<view v-for=" (infoPerson,index) in messDetail" v-if="index < 15">
 						
 						<!--A对话-->

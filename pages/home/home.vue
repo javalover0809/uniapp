@@ -154,13 +154,11 @@
 							
 						</view>
 						
-						
-	
-						
 					</view>
 					
 					 <!--分隔-->
 					<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
+				
 				</view>
 		
 	

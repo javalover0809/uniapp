@@ -30,8 +30,6 @@
 				</view>
 			  </view>	
 				
-				<!--分割线-->
-				<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				
 				<!--主内容点赞-->
 				<view style="width:100%;height:25px;background-color:white;float:left">
@@ -92,8 +90,6 @@
 							{{	comment.comment_content  }}
 						</p>	
 					</view>
-					<!--分割线-->
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 					
 					<!--评论点赞-->
 					<view style="width:100%;height:25px;background-color:white;float:left">
@@ -155,9 +151,8 @@
 										 {{ childComment.comment_content }}
 									</p>	
 								</view>
-								<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 								
-								<!--评论点赞-->
+								<!--子评论点赞-->
 								<view style="width:100%;height:25px;background-color:white;float:left">
 									
 									<view style="width:20%;height:25px;background-color:white;float:left">
@@ -186,7 +181,6 @@
 									<view style="width:20%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 										
 										<image src="http://www.wetalk.ltd//Users/Oraida/Downloads/comment.png" style="width:25px;height:23px"></image>
-										
 										
 									</view>
 										

@@ -132,7 +132,7 @@
 							<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 								
 								 ⬆
-								
+	
 							</view>
 							
 							<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
@@ -150,7 +150,6 @@
 						<view style="width:20%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
 							<image src="http://www.wetalk.ltd//Users/Oraida/Downloads/comment.png" style="width:25px;height:23px"></image>
-							
 							
 						</view>
 						

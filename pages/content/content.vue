@@ -6,7 +6,7 @@
 	
 	<view style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-			<view v-for=" (content,index) in infoContents" v-if="index == 0">
+			<view v-for=" (content,index) in infoContents" v-if="index < 2">
 			  <!--主评内容-->
 			  <view style="width:100%;height:auto">
 
@@ -181,7 +181,7 @@
 									<view style="width:20%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 										
 										<image src="http://www.wetalk.ltd//Users/Oraida/Downloads/comment.png" style="width:25px;height:23px"></image>
-										
+									
 									</view>
 										
 								</view>
@@ -190,6 +190,10 @@
 							</view>
 					</view>
 				</view>
+				
+				<!--分割线-->
+				<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+				
 				
 			</view>	
 				
@@ -201,7 +205,7 @@
 	
 
 	<view style="background-color:white;width:100%;height:100%;min-height:50px">
-	  这个是数据
+	  这个是
 	</view>
 
 
@@ -273,22 +277,18 @@
 							})
 
 			    },
-			
-			
-			   submitSelectChildComment(){
-			
-			
-			uni.request({
+				
+			submitSelectChildComment(){
+						uni.request({
 							url: 'http://localhost/AppSelectChildComment?comment_id=(1220)',
 							method: 'GET',
 							success: (res) => {	
 										
 								console.log(res.data)
+								
 								this.childComments = res.data		 
 															
-								}
-									
-									
+								}		
 						})
 			
 			    },

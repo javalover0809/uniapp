@@ -343,6 +343,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -404,21 +408,17 @@ var _default =
 
     },
 
-
     submitSelectChildComment: function submitSelectChildComment() {var _this3 = this;
-
-
       uni.request({
         url: 'http://localhost/AppSelectChildComment?comment_id=(1220)',
         method: 'GET',
         success: function success(res) {
 
           console.log(res.data);
+
           _this3.childComments = res.data;
 
         } });
-
-
 
 
     },

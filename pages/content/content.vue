@@ -6,7 +6,7 @@
 	
 	<view style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-			<view v-for=" (content,index) in infoContents" v-if="index < 2">
+			<view v-for=" (content,index) in infoContents" v-if="index == 1">
 			  <!--主评内容-->
 			  <view style="width:100%;height:auto">
 
@@ -61,11 +61,11 @@
 						
 						<image src="http://www.wetalk.ltd//Users/Oraida/Downloads/comment.png" style="width:25px;height:23px"></image>
 						
-						
 					</view>
 						
 				</view>
 				<!--分割线-->
+			
 				<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				
 				
@@ -191,10 +191,6 @@
 					</view>
 				</view>
 				
-				<!--分割线-->
-				<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
-				
-				
 			</view>	
 				
 			</view>
@@ -205,7 +201,7 @@
 	
 
 	<view style="background-color:white;width:100%;height:100%;min-height:50px">
-	  这个是
+		回复评论数据
 	</view>
 
 
@@ -221,7 +217,7 @@
 	export default {
 		data() {
 			return {
-				
+				content_id: null,
 				infoContents:  null,
 				comments: null,
 				childComments: null
@@ -235,15 +231,18 @@
 		   
 		        this.submitSelectContent(),
 				this.submitSelectComment(),
-				this.submitSelectChildComment()
+				this.submitSelectChildComment(),
+				this.getContentId()
 		
 		    },
 		
 		methods: {
-			
-			
-				
-			
+			    getContentId(){
+					
+					this.content_id	= this.getUrlVar('content_id')
+
+				},
+		
 				submitSelectContent(){
 								    uni.request({
 								    	url: 'http://www.wetalk.ltd/AppSelectContent',
@@ -261,7 +260,6 @@
 				 },
 			
 			submitSelectComment(){
-
 
 				uni.request({
 								url: 'http://localhost/AppSelectComment?content_id='+'(796)',
@@ -295,7 +293,7 @@
 			
 			
 				 
-			getUrl(){
+			getUrlVar(value){
 				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
 				let curRoute = routes[routes.length - 1].route //获取当前页面路由
 				let curParam = routes[routes.length - 1].options; //获取路由参数
@@ -305,6 +303,7 @@
 				console.log("当前页面的是curParam" + curParam.username)
 				console.log("当前页面的是curParam" + curParam.password)
 				console.log("当前页面的是to_user_id" + curParam.to_user_id)
+				return curParam.value
 			},
 			
 			skip(words){console.log("跳转到video" + words)

@@ -119,8 +119,7 @@
 						</view>
 					</view>
 					
-					<!--分割线-->
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+				
 					
 					<view style="width:100%;height:25px;background-color:white;float:left">
 						
@@ -306,10 +305,10 @@
 					url:'../talk/talk?to_user_id=' + user_id
 				})
 			},
-			to_content_page(){
+			to_content_page(content_id){
 				
 				uni.navigateTo({
-					url:'../content/content'
+					url:'../content/content?content_id=' + content_id
 				})
 				
 			},

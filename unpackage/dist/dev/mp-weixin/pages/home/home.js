@@ -344,7 +344,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var _default =
 {
   data: function data() {
@@ -441,10 +440,10 @@ var _default =
         url: '../talk/talk?to_user_id=' + user_id });
 
     },
-    to_content_page: function to_content_page() {
+    to_content_page: function to_content_page(content_id) {
 
       uni.navigateTo({
-        url: '../content/content' });
+        url: '../content/content?content_id=' + content_id });
 
 
     },

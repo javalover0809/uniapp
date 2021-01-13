@@ -343,15 +343,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
     return {
-
+      content_id: null,
       infoContents: null,
       comments: null,
       childComments: null };
@@ -365,14 +361,17 @@ var _default =
 
     this.submitSelectContent(),
     this.submitSelectComment(),
-    this.submitSelectChildComment();
+    this.submitSelectChildComment(),
+    this.getContentId();
 
   },
 
   methods: {
+    getContentId: function getContentId() {
 
+      this.content_id = this.getUrlVar('content_id');
 
-
+    },
 
     submitSelectContent: function submitSelectContent() {var _this = this;
       uni.request({
@@ -391,7 +390,6 @@ var _default =
     },
 
     submitSelectComment: function submitSelectComment() {var _this2 = this;
-
 
       uni.request({
         url: 'http://localhost/AppSelectComment?content_id=' + '(796)',
@@ -425,7 +423,7 @@ var _default =
 
 
 
-    getUrl: function getUrl() {
+    getUrlVar: function getUrlVar(value) {
       var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
       var curRoute = routes[routes.length - 1].route; //获取当前页面路由
       var curParam = routes[routes.length - 1].options; //获取路由参数
@@ -435,6 +433,7 @@ var _default =
       console.log("当前页面的是curParam" + curParam.username);
       console.log("当前页面的是curParam" + curParam.password);
       console.log("当前页面的是to_user_id" + curParam.to_user_id);
+      return curParam.value;
     },
 
     skip: function skip(words) {console.log("跳转到video" + words);

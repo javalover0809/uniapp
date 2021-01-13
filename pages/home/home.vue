@@ -35,9 +35,10 @@
 						</view>
 					</view>
 					 <!--分割线-->
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;">
-						
-					</view>
+					 
+					<view style="background-color:white;border-bottom:1px solid white;width:20%;height:1px;float:left;"></view>
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:80%;height:1px;float:left;"></view>
+				
 				</view>
 		
 
@@ -78,9 +79,7 @@
 							
 			     	</view>
 				 <!--分割线-->
-				 <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
-			    <!--分割线-->
-			    <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+			    <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:3px;float:left;"></view>
 				
 				<view v-for=" (infoPerson,index) in allFriends">
 					
@@ -100,7 +99,9 @@
 					</view>
 					
 					<!--分割线-->
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+					<view style="background-color:white;border-bottom:1px solid white;width:20%;height:1px;float:left;"></view>
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:80%;height:1px;float:left;"></view>
+					
 				
 				</view>
 		

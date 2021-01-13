@@ -5,7 +5,7 @@
 	
 	
 	<view v-if="mess_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
-				<view v-for=" (infoPerson,index) in manageTalkPersons" v-if="index < 12">
+				<view v-for=" (infoPerson,index) in manageTalkPersons">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
 						
@@ -69,7 +69,7 @@
 			    <!--分割线-->
 			    <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				
-				<view v-for=" (infoPerson,index) in allFriends" v-if="index < 12">
+				<view v-for=" (infoPerson,index) in allFriends">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
 						
@@ -98,7 +98,7 @@
 	
 	<view v-else-if="news_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-				<view v-for=" (content,index) in infoContents" v-if="index < 20">
+				<view v-for=" (content,index) in infoContents">
 					
 					<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 						

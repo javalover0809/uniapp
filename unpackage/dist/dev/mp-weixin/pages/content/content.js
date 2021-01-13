@@ -360,7 +360,7 @@ var _default =
 
     this.submitSelectContent(),
     this.submitSelectComment(),
-    this.submitSelectChildComment(),
+    // this.submitSelectChildComment(),
     this.getContentId();
 
   },
@@ -377,7 +377,7 @@ var _default =
       console.log("这个是确认输入的数据:" + this.input_value);
 
       uni.request({
-        url: 'http://localhost/AppInsertComment?user_id=' + '191' + '&commented_user_id=' + '191' + '&comment_content=' + this.input_value + '&content_id=' + '797',
+        url: 'http://localhost/AppInsertComment?user_id=' + '191' + '&commented_user_id=' + '191' + '&comment_content=' + this.input_value + '&content_id=' + '796',
         method: 'POST',
         success: function success(res) {
 

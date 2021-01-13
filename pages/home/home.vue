@@ -98,7 +98,7 @@
 	
 	<view v-else-if="news_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-				<view v-for=" (content,index) in infoContents" v-if="index < 5">
+				<view v-for=" (content,index) in infoContents" v-if="index < 20">
 					
 					<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 						
@@ -297,15 +297,11 @@
 			
 			</view>
 			 
-			 
-			 <!-- 个人资料
-			 <button type="primary" @click="scanCode()">扫一扫</button> -->
-	
 	</view>
 	
 	
 	
-	<view style="background-color:red;width:100%;height:100%;min-height:50px">
+	<view style="position:fixed;bottom:0px;background-color:red;width:100%;height:50px">
 		<!--底部信息-->
 			<view v-on:click="mess_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 					<p style="color:black" align="middle">消息</p>

@@ -6,7 +6,7 @@
 	
 	<view style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-			<view v-for=" (content,index) in infoContents" v-if="index == 1">
+			<view v-for=" (content,index) in infoContents" v-if="index == 0">
 			  <!--主评内容-->
 			  <view style="width:100%;height:auto">
 
@@ -201,7 +201,7 @@
 	
 
 	<view style="background-color:white;width:100%;height:100%;min-height:50px">
-		<input id="input_id" type="text" value="我的测试数据" />
+		<input type="text" v-model="input_value" placeholder="输入评论..." @input="onKeyUserNameInput"  />
 		<p v-on:click="click_yes()"> 确定 </p>
 	</view>
 
@@ -221,11 +221,9 @@
 				content_id: null,
 				infoContents:  null,
 				comments: null,
-				childComments: null
-				
-				
-				
-				
+				childComments: null,
+				input_value: null,
+				post_result: null
 			}
 		},
 		 mounted () {
@@ -239,15 +237,27 @@
 		
 		methods: {
 				
+				onKeyUserNameInput(event) {
+				                this.input_value = event.target.value  
+								console.log("输入的数据是:" + this.input_value)
+							
+				}, 	
 				click_yes(){
 					
-					const query = wx.createSelectorQuery()
-					query.select('.input_id').boundingClientRect()
-					query.exec(function (res) {
-						console.log("输入的数据是2:" + res[0].bottom)
-					    console.log("输入的数据是:"  + res[0].top)
-					})
-				},		
+						console.log("这个是确认输入的数据:" + this.input_value)
+						
+						uni.request({
+							url:'http://localhost/AppInsertComment?user_id=' + '191' + '&commented_user_id=' + '191' + '&comment_content=' + this.input_value + '&content_id=' + '797',
+							method:'POST',
+							success: (res) => {
+								
+								 console.log(res.data)
+								 this.post_result = res.data		 
+													
+							}
+						})
+						this.input_value = null
+				},
 
 			    getContentId(){
 					
@@ -265,13 +275,13 @@
 											 this.infoContents = res.data		 
 																
 										}
-										
-										
+	
 								    })
 								  
 				 },
 			
 			submitSelectComment(){
+				
 
 				uni.request({
 								url: 'http://localhost/AppSelectComment?content_id='+'(796)',

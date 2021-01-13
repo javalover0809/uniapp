@@ -351,11 +351,9 @@ var _default =
       content_id: null,
       infoContents: null,
       comments: null,
-      childComments: null };
-
-
-
-
+      childComments: null,
+      input_value: null,
+      post_result: null };
 
   },
   mounted: function mounted() {
@@ -369,14 +367,26 @@ var _default =
 
   methods: {
 
-    click_yes: function click_yes() {
+    onKeyUserNameInput: function onKeyUserNameInput(event) {
+      this.input_value = event.target.value;
+      console.log("输入的数据是:" + this.input_value);
 
-      var query = wx.createSelectorQuery();
-      query.select('.input_id').boundingClientRect();
-      query.exec(function (res) {
-        console.log("输入的数据是2:" + res[0].bottom);
-        console.log("输入的数据是:" + res[0].top);
-      });
+    },
+    click_yes: function click_yes() {var _this = this;
+
+      console.log("这个是确认输入的数据:" + this.input_value);
+
+      uni.request({
+        url: 'http://localhost/AppInsertComment?user_id=' + '191' + '&commented_user_id=' + '191' + '&comment_content=' + this.input_value + '&content_id=' + '797',
+        method: 'POST',
+        success: function success(res) {
+
+          console.log(res.data);
+          _this.post_result = res.data;
+
+        } });
+
+      this.input_value = null;
     },
 
     getContentId: function getContentId() {
@@ -385,23 +395,23 @@ var _default =
 
     },
 
-    submitSelectContent: function submitSelectContent() {var _this = this;
+    submitSelectContent: function submitSelectContent() {var _this2 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectContent',
         method: 'GET',
         success: function success(res) {
 
           console.log(res.data);
-          _this.infoContents = res.data;
+          _this2.infoContents = res.data;
 
         } });
 
 
 
-
     },
 
-    submitSelectComment: function submitSelectComment() {var _this2 = this;
+    submitSelectComment: function submitSelectComment() {var _this3 = this;
+
 
       uni.request({
         url: 'http://localhost/AppSelectComment?content_id=' + '(796)',
@@ -409,7 +419,7 @@ var _default =
         success: function success(res) {
 
           console.log(res.data);
-          _this2.comments = res.data;
+          _this3.comments = res.data;
 
         } });
 
@@ -418,7 +428,7 @@ var _default =
 
     },
 
-    submitSelectChildComment: function submitSelectChildComment() {var _this3 = this;
+    submitSelectChildComment: function submitSelectChildComment() {var _this4 = this;
       uni.request({
         url: 'http://localhost/AppSelectChildComment?comment_id=(1220)',
         method: 'GET',
@@ -426,7 +436,7 @@ var _default =
 
           console.log(res.data);
 
-          _this3.childComments = res.data;
+          _this4.childComments = res.data;
 
         } });
 

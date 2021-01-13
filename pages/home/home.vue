@@ -166,8 +166,140 @@
 	
 	<view v-else-if="my_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 		
-			个人资料
-			 <button type="primary" @click="scanCode()">扫一扫</button>
+			<view style="width:100%;height:80px;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
+				
+				<view style="width:20%;height:80px;background-color:blue;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
+					
+				</view>
+				
+				<view style="width:80%;height:80px;background-color:green;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<p> 唐国洁 </p>
+					
+				</view>
+				
+			</view>
+			
+			<view style="width:100%;height:100px;background-color:white;float:left;align-items:top;justify-content:top;display:flex;">
+				<view style="width:20%;height:100px;background-color:white;float:left;align-items:top;justify-content:top;display:flex;">
+					<view style="width:100%;height:80px;background-color:orange;float:left">
+					
+						<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
+					
+					</view>
+				
+				</view>
+				
+				<view style="width:80%;height:100px;background-color:blue;float:left;align-items:top;justify-content:top;display:flex;">
+				
+				</view>
+				
+			</view>
+			
+			<!--分隔-->
+			<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
+			
+			
+			
+			<view style="width:100%;height:80px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+				
+				<view style="width:25%;height:80px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/IMG_8035.JPG" style="width:80px;height:80px"></image>
+					
+				</view>
+				
+				<view style="width:25%;height:80px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/IMG_8035.JPG" style="width:80px;height:80px"></image>
+					
+				</view>
+				
+				<view style="width:25%;height:80px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/IMG_8035.JPG" style="width:80px;height:80px"></image>
+					
+				</view>
+				
+				<view style="width:25%;height:80px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/IMG_8035.JPG" style="width:80px;height:80px"></image>
+					
+				</view>
+						
+			</view>
+			
+			
+			
+			<!--分隔-->
+			<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
+						
+			<view v-for=" (content,index) in infoContents" v-if="index < 2">
+				
+				<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<image v-bind:src="[ 'http://www.wetalk.ltd/' + content.head_url ]" style="border-radius:50%;width:50px;height:50px"></image>
+					
+				</view>
+				
+				<view style="width:80%;min-height:50px;height:auto;background-color:white;float:left">
+					<view style="width:90%;height:25px;background-color:white;float:left">
+						<p>	{{	content.username  }} 
+							{{	content.create_time  }}
+						</p>
+					</view>
+					<view v-on:click="to_content_page(content.id)"  style="width:90%;min-height:25px;height:auto;background-color:white;float:left">
+						<p style="color:black;font-size:14px">
+							{{	content.content  }}
+						</p>	
+					</view>
+				</view>
+				
+			
+				
+				<view style="width:100%;height:25px;background-color:white;float:left">
+					
+					<view style="width:20%;height:25px;background-color:white;float:left">
+					</view>	
+					
+					<view style="width:30%;height:25px;background-color:white;float:left">
+						
+						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+							
+							 ⬆
+				
+						</view>
+						
+						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+							
+							 ⬇
+							
+						</view>
+						
+					</view>
+					
+					<view style="width:30%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+						
+					</view>
+					
+					<view style="width:20%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+						
+						<image src="http://www.wetalk.ltd//Users/Oraida/Downloads/comment.png" style="width:25px;height:23px"></image>
+						
+					</view>
+					
+				</view>
+				
+				 <!--分隔-->
+				<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
+			
+			</view>
+			 
+			 
+			 <!-- 个人资料
+			 <button type="primary" @click="scanCode()">扫一扫</button> -->
 	
 	</view>
 	
@@ -221,8 +353,8 @@
 				
 				mess_flag: false,
 				friend_flag: false,
-				news_flag: true,
-				my_flag: false
+				news_flag: false,
+				my_flag: true
 				
 				
 				
@@ -373,7 +505,7 @@
 			    submitSelectMess(user_id){
 					uni.request({
 						url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + user_id ,
-										// url: 'http://www.wetalk.ltd/AppSelectHeadUrl',
+										
 										method: 'GET',
 										success: (res) => {	
 											console.log(res.data)

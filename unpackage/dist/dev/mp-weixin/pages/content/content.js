@@ -343,6 +343,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -367,6 +368,17 @@ var _default =
   },
 
   methods: {
+
+    click_yes: function click_yes() {
+
+      var query = wx.createSelectorQuery();
+      query.select('.input_id').boundingClientRect();
+      query.exec(function (res) {
+        console.log("输入的数据是2:" + res[0].bottom);
+        console.log("输入的数据是:" + res[0].top);
+      });
+    },
+
     getContentId: function getContentId() {
 
       this.content_id = this.getUrlVar('content_id');

@@ -201,7 +201,8 @@
 	
 
 	<view style="background-color:white;width:100%;height:100%;min-height:50px">
-		回复评论数据
+		<input id="input_id" type="text" value="我的测试数据" />
+		<p v-on:click="click_yes()"> 确定 </p>
 	</view>
 
 
@@ -237,6 +238,17 @@
 		    },
 		
 		methods: {
+				
+				click_yes(){
+					
+					const query = wx.createSelectorQuery()
+					query.select('.input_id').boundingClientRect()
+					query.exec(function (res) {
+						console.log("输入的数据是2:" + res[0].bottom)
+					    console.log("输入的数据是:"  + res[0].top)
+					})
+				},		
+
 			    getContentId(){
 					
 					this.content_id	= this.getUrlVar('content_id')

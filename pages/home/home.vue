@@ -5,6 +5,17 @@
 	
 	
 	<view v-if="mess_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+		
+		<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+			
+			<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+				
+				<input type="text" v-model="mess_search_value" placeholder="搜索" @input="mess_search_fun" style="width:80%"/>
+					
+			</view>	
+			
+		</view>
+		
 				<view v-for=" (infoPerson,index) in manageTalkPersons">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
@@ -37,6 +48,16 @@
 	
 	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 
+
+		<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+			
+			<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+				
+				<input type="text" v-model="mess_search_value" placeholder="搜索" @input="mess_search_fun" style="width:80%"/>
+					
+			</view>	
+			
+		</view>
 					<view style="width:100%;min-height:50px;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
 						
 						<view style="width:33.33%;min-height:50px;background-color:white;height:auto;float:left;align-items:center;justify-content:center;display:flex">					
@@ -58,14 +79,6 @@
 			     	</view>
 				 <!--分割线-->
 				 <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
-
-					<view style="width:100%;min-height:50px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
-						
-			     		<input type="text" maxlength="11" v-model="login.phone" placeholder="搜索" @input="onKeyUserNameInput" class="is-input1" />
-
-			     	</view>
-			  
-
 			    <!--分割线-->
 			    <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				
@@ -97,7 +110,17 @@
 	
 	
 	<view v-else-if="news_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
-			
+			    
+				<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+					
+					<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+						
+						<input type="text" v-model="mess_search_value" placeholder="搜索" @input="mess_search_fun" style="width:80%"/>
+							
+					</view>	
+					
+				</view>
+				
 				<view v-for=" (content,index) in infoContents">
 					
 					<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
@@ -301,7 +324,7 @@
 	
 	
 	
-	<view style="position:fixed;bottom:0px;background-color:red;width:100%;height:50px">
+	<view style="position:fixed;bottom:10px;background-color:white;width:100%;height:60px">
 		<!--底部信息-->
 			<view v-on:click="mess_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 					<p style="color:black" align="middle">消息</p>
@@ -328,6 +351,8 @@
 			</view>
 	</view>
 
+	<view style="position:fixed;bottom:0px;background-color:white;width:100%;height:10px">
+	</view>
 
 </view>
 
@@ -341,7 +366,8 @@
 	export default {
 		data() {
 			return {
-				user_my_id:'191',
+				user_my_id:	'191',
+				mess_search_value: null,
 				
 				manageTalkPersons: null,
 				infoContents: null,
@@ -367,6 +393,10 @@
 		    },
 		
 		methods: {
+			mess_search_fun(e){
+			 this.mess_search_value	= e.target.value
+			 console.log("这里进行内容搜索:" + this.mess_search_value)
+			},
 			
 			
 			   submitSelectTalkPerson(){

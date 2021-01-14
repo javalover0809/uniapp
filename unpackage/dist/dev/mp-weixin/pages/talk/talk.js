@@ -197,6 +197,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -220,9 +224,14 @@ var _default =
     },
     sendMess: function sendMess() {
 
+      uni.request({
+        url: 'http://localhost/AppInsertMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id + '&mess_content=' + this.mess_content,
+        method: 'POST' });
 
+      this.mess_content = null;
 
     },
+
 
     submitSelectMess: function submitSelectMess() {var _this = this;
 

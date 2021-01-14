@@ -497,6 +497,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -508,10 +515,10 @@ var _default =
       infoContents: null,
       allFriends: null,
 
-      mess_flag: false,
+      mess_flag: true,
       friend_flag: false,
       news_flag: false,
-      my_flag: true };
+      my_flag: false };
 
 
 

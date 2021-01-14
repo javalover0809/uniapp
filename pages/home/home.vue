@@ -28,7 +28,14 @@
 					
 					<view v-on:click="talk_fun(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
-							<p>	 {{	infoPerson.username  }}  {{	infoPerson.create_time  }} </p>
+							
+							<view style="width:50%;min-height:25px;background-color:white;float:left">
+								<p>	 {{	infoPerson.username  }} </p>
+							</view>
+							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+								<p style="color:grey;font-size:8px">{{	infoPerson.create_time  }} </p>
+							</view>
+		
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
 							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
@@ -373,10 +380,10 @@
 				infoContents: null,
 				allFriends: null,
 				
-				mess_flag: false,
+				mess_flag: true,
 				friend_flag: false,
 				news_flag: false,
-				my_flag: true
+				my_flag: false
 				
 				
 				

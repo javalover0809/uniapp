@@ -14,7 +14,7 @@
 						
 						<view style="width:80%;height:50px;background-color:white;float:left">
 
-								<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
+								<p style="color:black;font-size:10px">{{	infoPerson.mess_content  }}</p>	
 
 						</view>
 						</view>
@@ -33,7 +33,7 @@
 							  <view style="width:70%;height:50px;background-color:white;float:left">
 							  </view>
 							  <view style="width:30%;height:50px;background-color:white;float:right">
-								  <p style="color:grey;font-size:10px" align="right">{{	infoPerson.mess_content  }}</p>
+								  <p style="color:black;font-size:10px" align="right">{{	infoPerson.mess_content  }}</p>
 							  </view>
 									
 						</view>
@@ -47,14 +47,18 @@
 			
 			<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 				
-				<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+				<view style="width:80%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 					
 					<input type="text" v-model="mess_content" placeholder="请输入消息..." @input="mess_content_fun" style="width:80%"/>
 						
 				</view>	
-				<view style="width:10%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+				<view style="width:17%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 					
 					<p style="background-color:white;font-size:18px" v-on:click="sendMess()"> 发送 </p>
+						
+				</view>	
+				<view style="width:3%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
 						
 				</view>	
 				
@@ -89,10 +93,15 @@
 							console.log("输入的数据是:" + this.mess_content)	
 			},  
 			sendMess(){
-			
+
+				uni.request({
+					url:'http://localhost/AppInsertMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id + '&mess_content=' + this.mess_content,
+					method:'POST'
+				})
+				this.mess_content = null
 			   
-				
 			},
+			
 						
 			submitSelectMess(){
 				

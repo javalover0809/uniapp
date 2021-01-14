@@ -10,7 +10,8 @@
     "pages/setting/setting",
     "pages/news/news",
     "pages/talk/talk",
-    "pages/content/content"
+    "pages/content/content",
+    "pages/publish/publish"
   ],
   "subPackages": [],
   "window": {
@@ -19,5 +20,6 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap5.json"
 }

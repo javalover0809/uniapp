@@ -511,6 +511,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -542,6 +543,14 @@ var _default =
   },
 
   methods: {
+    publish_content: function publish_content() {
+
+      uni.navigateTo({
+        url: '../publish/publish' });
+
+
+    },
+
     mess_search_fun: function mess_search_fun(e) {
       this.mess_search_value = e.target.value;
       console.log("这里进行内容搜索:" + this.mess_search_value);

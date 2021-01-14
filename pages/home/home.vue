@@ -336,7 +336,9 @@
 			 
 	</view>
 	
-	
+	<view v-if="news_flag == true"  style="position:fixed;bottom:100px;left:300px;background-color:white;width:20%;height:60px;border-radius:100px;align-items:center;justify-content:center;display:flex;">
+		<p v-on:click="publish_content">发布</p>
+	</view>
 	
 	<view style="position:fixed;bottom:10px;background-color:rgb(234,234,236);width:100%;height:60px">
 		<!--底部信息-->
@@ -354,7 +356,6 @@
 			<view v-on:click="news_fun"  style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 							
 					<p style="color:black" align="middle" v-on:click="submitSelectContent">新鲜事</p>
-					
 			</view>
 		
 			
@@ -407,6 +408,14 @@
 		    },
 		
 		methods: {
+			publish_content(){
+				
+				uni.navigateTo({
+					url:'../publish/publish'
+				})
+				
+			},
+			
 			mess_search_fun(e){
 			 this.mess_search_value	= e.target.value
 			 console.log("这里进行内容搜索:" + this.mess_search_value)

@@ -26,7 +26,7 @@
 					
 					
 					
-					<view v-on:click="talk_fun(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
+					<view v-on:click="talk_fun(infoPerson.user_id)" style="width:80%;min-height:50px;height:auto;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
 							
 							<view style="width:50%;min-height:25px;background-color:white;float:left">
@@ -42,9 +42,7 @@
 						</view>
 					</view>
 					 <!--分割线-->
-					 
-					<view style="background-color:white;border-bottom:1px solid white;width:20%;height:1px;float:left;"></view>
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:80%;height:1px;float:left;"></view>
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 				
 				</view>
 		
@@ -117,10 +115,8 @@
 					</view>
 					
 					<!--分割线-->
-					<view style="background-color:white;border-bottom:1px solid white;width:20%;height:1px;float:left;"></view>
-					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:80%;height:1px;float:left;"></view>
+					<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
 					
-				
 				</view>
 		
 
@@ -342,34 +338,34 @@
 	
 	
 	
-	<view style="position:fixed;bottom:10px;background-color:white;width:100%;height:60px">
+	<view style="position:fixed;bottom:10px;background-color:rgb(234,234,236);width:100%;height:60px">
 		<!--底部信息-->
-			<view v-on:click="mess_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+			<view v-on:click="mess_fun" style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 					<p style="color:black" align="middle" v-on:click="submitSelectTalkPerson">消息</p>
 			</view>
 			
-			<view v-on:click="friend_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+			<view v-on:click="friend_fun" style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 				
 					
 					<p style="color:black" align="middle" v-on:click="submitSelectFriend">好友</p>
 					
 			</view>
 			
-			<view v-on:click="news_fun"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+			<view v-on:click="news_fun"  style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 							
 					<p style="color:black" align="middle" v-on:click="submitSelectContent">新鲜事</p>
 					
 			</view>
 		
 			
-			<view v-on:click="my_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+			<view v-on:click="my_fun" style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 						
 						<p style="color:black" align="middle">我的</p>
 						
 			</view>
 	</view>
 
-	<view style="position:fixed;bottom:0px;background-color:white;width:100%;height:10px">
+	<view style="position:fixed;bottom:0px;background-color:rgb(234,234,236);width:100%;height:10px">
 	</view>
 
 </view>

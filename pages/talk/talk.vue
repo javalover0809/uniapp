@@ -1,7 +1,7 @@
 <template>
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
 		<view style="background-color:white;width:100%;height:auto;min-height:662px">	
-					<view v-for=" (infoPerson,index) in messDetail" v-if="index < 15">
+					<view v-for=" (infoPerson,index) in messDetail">
 						
 						<!--A对话-->
 						<view v-if="infoPerson.user_id != '191'">
@@ -55,6 +55,7 @@
 				<view style="width:17%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 					
 					<p style="background-color:white;font-size:18px" v-on:click="sendMess()"> 发送 </p>
+					<p style="background-color:white;font-size:18px" v-on:click="submitSelectMess()"> 拉取 </p>
 						
 				</view>	
 				<view style="width:3%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
@@ -99,6 +100,7 @@
 					method:'POST'
 				})
 				this.mess_content = null
+				this.submitSelectMess()
 			   
 			},
 			
@@ -113,6 +115,8 @@
 					  this.messDetail = res.data
 					  }
 				   })
+				   
+				   
 			   }
 			
 		}

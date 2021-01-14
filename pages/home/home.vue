@@ -345,19 +345,19 @@
 	<view style="position:fixed;bottom:10px;background-color:white;width:100%;height:60px">
 		<!--底部信息-->
 			<view v-on:click="mess_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
-					<p style="color:black" align="middle">消息</p>
+					<p style="color:black" align="middle" v-on:click="submitSelectTalkPerson">消息</p>
 			</view>
 			
 			<view v-on:click="friend_fun" style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 				
 					
-					<p style="color:black" align="middle">好友</p>
+					<p style="color:black" align="middle" v-on:click="submitSelectFriend">好友</p>
 					
 			</view>
 			
 			<view v-on:click="news_fun"  style="background-color:white;width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 							
-					<p style="color:black" align="middle">新鲜事</p>
+					<p style="color:black" align="middle" v-on:click="submitSelectContent">新鲜事</p>
 					
 			</view>
 		

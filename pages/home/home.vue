@@ -111,7 +111,7 @@
 							<view style="width:50%;min-height:25px;background-color:white;float:left">
 							</view>
 							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-								<p style="color:red;font-size:10px;"> 发送消息 </p>
+								<p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p>
 							</view>
 						</view>
 					</view>
@@ -485,6 +485,14 @@
 				
 				uni.navigateTo({
 					url:'../content/content?content_id=' + content_id
+				})
+				
+			},
+			
+			to_talk_page(user_id){
+				
+				uni.navigateTo({
+					url:'../talk/talk?to_user_id=' + user_id
 				})
 				
 			},

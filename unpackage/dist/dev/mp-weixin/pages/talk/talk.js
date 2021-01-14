@@ -235,12 +235,8 @@ var _default =
 
     submitSelectMess: function submitSelectMess() {var _this = this;
 
-      var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
-      var curRoute = routes[routes.length - 1].route; //获取当前页面路由
-      var curParam = routes[routes.length - 1].options; //获取路由参数
-
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + curParam.to_user_id,
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
         method: 'GET',
         success: function success(res) {
           console.log(res.data);

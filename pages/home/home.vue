@@ -168,13 +168,13 @@
 							
 							<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 								
-								 ⬆
+								 ↑
 	
 							</view>
 							
 							<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 								
-								 ⬇
+								 ↓
 								
 							</view>
 							
@@ -204,35 +204,89 @@
 	
 	<view v-else-if="my_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 		
-			<view style="width:100%;height:80px;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
+			<view style="width:100%;min-height:80px;height:auto;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
 				
-				<view style="width:20%;height:80px;background-color:blue;float:left;align-items:center;justify-content:center;display:flex">
-					
-					<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
-					
+				<view style="width:22%;height:180px;background-color:white;float:left;">
+					<view style="width:100%;height:80px;background-color:white;float:left;">
+						<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
+					</view>
+					<view style="width:100%;height:100px;background-color:white;float:left;">
+						<p style="font-size:14px;color:black;"> 发送消息 </p>
+						<p style="font-size:14px;color:black;"> 戳一下 </p>
+						<p style="font-size:14px;color:black;"> 添加好友 </p>
+						<p style="font-size:14px;color:black;"> 屏蔽 </p>
+					</view>
 				</view>
 				
-				<view style="width:80%;height:80px;background-color:green;float:left;align-items:center;justify-content:center;display:flex">
+				<view style="width:78%;min-height:180px;height:auto;background-color:white;float:left;">
+					<!--姓名-->
+					<view style="background-color:white;width:100%;height:auto;float:left;">	
+						<view style="background-color:white;width:25%;height:30px;float:left;">
+							 <p style="font-size:14px;color:grey;display:inline;"> 姓名: </p>
+						</view>
+						<view style="background-color:white;width:75%;height:30px;float:left;">
+							<p style="font-size:14px;display:inline;"> 唐国洁 </p>
+						</view>
+					</view>	
 					
-					<p> 唐国洁 </p>
+					<!--性别-->
+					<view style="background-color:white;width:100%;height:auto;float:left;">	
+						<view style="background-color:white;width:25%;height:30px;float:left;">
+							 <p style="font-size:14px;color:grey;display:inline;"> 性别: </p>
+						</view>
+						<view style="background-color:white;width:75%;height:30px;float:left;">
+							<p style="font-size:14px;display:inline;"> 男生 </p>
+						</view>
+					</view>	
+					
+					<view style="background-color:white;width:100%;height:auto;float:left;">	
+						<view style="background-color:white;width:25%;height:30px;float:left;">
+							 <p style="font-size:14px;color:grey;display:inline;"> 生日: </p>
+						</view>
+						<view style="background-color:white;width:75%;height:30px;float:left;">
+							<p style="font-size:14px;display:inline;"> 1994年 9月 24日 </p>
+						</view>
+					</view>	
+					
+					<view style="background-color:white;width:100%;height:auto;float:left;">
+						<view style="background-color:white;width:25%;height:30px;float:left;">
+							 <p style="font-size:14px;color:grey;display:inline;">  感情状态: </p>
+						</view>
+						<view style="background-color:white;width:75%;height:30px;float:left;">
+							<p style="font-size:14px;display:inline;"> 单身 </p>
+						</view>
+					</view>	
+					
+					<view style="background-color:white;width:100%;height:auto;float:left;">
+						<view style="background-color:white;width:25%;height:30px;float:left;">
+							 <p style="font-size:14px;color:grey;display:inline;">  大学: </p>
+						</view>
+						<view style="background-color:white;width:75%;height:30px;float:left;">
+							<p style="font-size:14px;display:inline;"> 北京交通大学 2018级 硕士 </p>
+						</view>
+					</view>	
+			
 					
 				</view>
 				
 			</view>
 			
-			<view style="width:100%;height:100px;background-color:white;float:left;align-items:top;justify-content:top;display:flex;">
-				<view style="width:20%;height:100px;background-color:white;float:left;align-items:top;justify-content:top;display:flex;">
-					<view style="width:100%;height:80px;background-color:orange;float:left">
-					
-						<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
-					
-					</view>
+			<!--分隔-->
+			<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
+			
+			<view style="width:100%;height:25px;background-color:red;float:left;">
 				
-				</view>
+				<view style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
+					<p> 好友 </p>
+				</view>	
 				
-				<view style="width:80%;height:100px;background-color:blue;float:left;align-items:top;justify-content:top;display:flex;">
+				<view style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
+					<p> 关注 </p>
+				</view>	
 				
-				</view>
+				<view style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
+					<p> 粉丝 </p>
+				</view>	
 				
 			</view>
 			
@@ -274,7 +328,7 @@
 			<!--分隔-->
 			<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
 						
-			<view v-for=" (content,index) in infoContents" v-if="index < 2">
+			<view v-for=" (content,index) in infoContents" >
 				
 				<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 					
@@ -306,13 +360,13 @@
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ⬆
+							 ↑
 				
 						</view>
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ⬇
+							 ↓
 							
 						</view>
 						
@@ -356,6 +410,7 @@
 			<view v-on:click="news_fun"  style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 							
 					<p style="color:black" align="middle" v-on:click="submitSelectContent">新鲜事</p>
+					
 			</view>
 		
 			
@@ -388,10 +443,10 @@
 				infoContents: null,
 				allFriends: null,
 				
-				mess_flag: true,
+				mess_flag: false,
 				friend_flag: false,
 				news_flag: false,
-				my_flag: false
+				my_flag: true
 				
 				
 				

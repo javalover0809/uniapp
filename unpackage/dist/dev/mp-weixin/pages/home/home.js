@@ -512,6 +512,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -523,10 +578,10 @@ var _default =
       infoContents: null,
       allFriends: null,
 
-      mess_flag: true,
+      mess_flag: false,
       friend_flag: false,
       news_flag: false,
-      my_flag: false };
+      my_flag: true };
 
 
 

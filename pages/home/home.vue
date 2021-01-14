@@ -98,10 +98,21 @@
 					
 					<view style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
-							<p>	{{ infoPerson.username }} </p>
+							
+							<view style="width:50%;min-height:25px;background-color:white;float:left">
+								<p>	 {{	infoPerson.username  }} </p>
+							</view>
+							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+								<p style="font-size:10px;"> 查看主页 </p>
+							</view>
+								
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
-							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content }}</p>	
+							<view style="width:50%;min-height:25px;background-color:white;float:left">
+							</view>
+							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+								<p style="color:red;font-size:10px;"> 发送消息 </p>
+							</view>
 						</view>
 					</view>
 					

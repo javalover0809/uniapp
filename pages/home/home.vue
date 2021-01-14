@@ -15,7 +15,7 @@
 			</view>	
 			
 		</view>
-		
+
 				<view v-for=" (infoPerson,index) in manageTalkPersons">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
@@ -28,7 +28,7 @@
 					
 					<view v-on:click="talk_fun(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
-							<p>	 {{	infoPerson.username  }} </p>
+							<p>	 {{	infoPerson.username  }}  {{	infoPerson.create_time  }} </p>
 						</view>
 						<view style="width:80%;height:25px;background-color:white;float:left">
 							<p style="color:grey;font-size:10px">{{	infoPerson.mess_content  }}</p>	
@@ -49,16 +49,16 @@
 	
 	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 
-
-		<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
-			
-			<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
-				
-				<input type="text" v-model="mess_search_value" placeholder="搜索" @input="mess_search_fun" style="width:80%"/>
+					<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+						
+						<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+							
+							<input type="text" v-model="mess_search_value" placeholder="搜索" @input="mess_search_fun" style="width:80%"/>
+								
+						</view>	
+						
+					</view>
 					
-			</view>	
-			
-		</view>
 					<view style="width:100%;min-height:50px;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
 						
 						<view style="width:33.33%;min-height:50px;background-color:white;height:auto;float:left;align-items:center;justify-content:center;display:flex">					
@@ -313,7 +313,6 @@
 						<image src="http://www.wetalk.ltd//Users/Oraida/Downloads/comment.png" style="width:25px;height:23px"></image>
 						
 					</view>
-					
 				</view>
 				
 				 <!--分隔-->

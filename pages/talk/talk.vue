@@ -1,11 +1,6 @@
 <template>
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
-		<view style="background-color:white;width:100%;height:auto;min-height:662px">
-			
-					<view style="width:100%;min-height:50px;background-color:blue;height:auto;float:left">
-						
-					</view>
-			
+		<view style="background-color:white;width:100%;height:auto;min-height:662px">	
 					<view v-for=" (infoPerson,index) in messDetail" v-if="index < 15">
 						
 						<!--A对话-->
@@ -48,19 +43,26 @@
 			</view>
 	  	</view>	
 		
-		<view style="background-color:white;width:100%;height:50px">
+		<view style="position:fixed;bottom:10px;background-color:rgb(234,234,236);width:100%;height:60px">
 			
-			<view style="background-color:white;width:80%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
-				 
-				 <input type="text" maxlength="11" v-model="login.phone" placeholder="输入消息..." @input="onKeyUserNameInput" class="is-input1 " /> 
-
-			</view>
-			
-			<view style="background-color:green;width:20%;height:50px;float:left;align-items:center;justify-content:center;display:flex">
-					<button type="default">发送</button>
+			<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+				
+				<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<input type="text" v-model="mess_content" placeholder="请输入消息..." @input="mess_content_fun" style="width:80%"/>
+						
+				</view>	
+				<view style="width:10%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
+					
+					<p style="background-color:white;font-size:18px" v-on:click="sendMess()"> 发送 </p>
+						
+				</view>	
+				
 			</view>
 			
 		</view>
+		<view style="position:fixed;bottom:0px;background-color:rgb(234,234,236);width:100%;height:10px">
+		</view>	
 
 	</view>
 </template>
@@ -69,7 +71,7 @@
 	export default {
 		data() {
 			return {
-				login: { phone: "",  password: "",  }, 
+				mess_content: null, 
 				messDetail:null
 				
 			}
@@ -82,12 +84,16 @@
 		   },
 		
 		methods: {
-			onKeyUserNameInput: function(event) {  
-			                this.phone = event.target.value  
-							console.log("输入的数据是:" + this.phone)
-						
+			mess_content_fun(e) {  
+			                this.mess_content = e.target.value  
+							console.log("输入的数据是:" + this.mess_content)	
 			},  
+			sendMess(){
 			
+			   
+				
+			},
+						
 			submitSelectMess(){
 				
 				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组

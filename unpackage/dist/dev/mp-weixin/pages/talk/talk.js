@@ -195,11 +195,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      login: { phone: "", password: "" },
+      mess_content: null,
       messDetail: null };
 
 
@@ -212,9 +214,13 @@ var _default =
   },
 
   methods: {
-    onKeyUserNameInput: function onKeyUserNameInput(event) {
-      this.phone = event.target.value;
-      console.log("输入的数据是:" + this.phone);
+    mess_content_fun: function mess_content_fun(e) {
+      this.mess_content = e.target.value;
+      console.log("输入的数据是:" + this.mess_content);
+    },
+    sendMess: function sendMess() {
+
+
 
     },
 

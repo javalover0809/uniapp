@@ -4,7 +4,9 @@
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
 	
 	
-	<view v-if="mess_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+	<view v-if="mess_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
+		<!--空格-->
+		<view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
 		
 		<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 			
@@ -123,7 +125,9 @@
 	
 	
 	
-	<view v-else-if="news_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+	<view v-else-if="news_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
+			    <!--空格-->
+			    <view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
 			    
 				<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 					
@@ -203,11 +207,10 @@
 	</view>
 	
 	
-	
 	<view v-else-if="my_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
 		
-			<view style="width:100%;height:70px;background-color:red;float:left;">
-			</view>
+			<view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
+			
 			<view style="width:100%;min-height:80px;height:auto;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
 				
 				<view style="width:22%;height:180px;background-color:white;float:left;">

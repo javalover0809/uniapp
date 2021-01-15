@@ -11,7 +11,8 @@
     "pages/news/news",
     "pages/talk/talk",
     "pages/content/content",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/allFriend/allFriend"
   ],
   "subPackages": [],
   "window": {

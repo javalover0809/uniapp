@@ -276,16 +276,16 @@
 			
 			<view style="width:100%;height:25px;background-color:red;float:left;">
 				
-				<view style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
-					<p> 好友 </p>
+				<view v-on:click="to_allfriend_page" style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
+					<p> 好友 10</p>
 				</view>	
 				
-				<view style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
-					<p> 关注 </p>
+				<view v-on:click="to_allfriend_page" style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
+					<p> 关注 12</p>
 				</view>	
 				
-				<view style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
-					<p> 粉丝 </p>
+				<view v-on:click="to_allfriend_page" style="background-color:white;width:33.33%;height:25px;float:left;align-items:center;justify-content:center;display:flex">
+					<p> 粉丝 20</p>
 				</view>	
 				
 			</view>
@@ -463,6 +463,15 @@
 		    },
 		
 		methods: {
+			
+			to_allfriend_page(){
+				
+				uni.navigateTo({
+					url:'../allFriend/allFriend'
+				})
+				
+			},
+			
 			publish_content(){
 				
 				uni.navigateTo({

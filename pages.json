@@ -108,6 +108,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/allFriend/allFriend",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

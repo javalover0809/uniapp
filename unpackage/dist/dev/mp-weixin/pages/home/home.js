@@ -598,6 +598,15 @@ var _default =
   },
 
   methods: {
+
+    to_allfriend_page: function to_allfriend_page() {
+
+      uni.navigateTo({
+        url: '../allFriend/allFriend' });
+
+
+    },
+
     publish_content: function publish_content() {
 
       uni.navigateTo({

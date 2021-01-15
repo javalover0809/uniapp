@@ -1,6 +1,11 @@
 <template>
 	<view style="background-color:white;width:100%;height:100%;min-height:712px">
-		<view style="background-color:white;width:100%;height:auto;min-height:662px">	
+		<view style="position:relative;bottom:70px;background-color:white;width:100%;height:auto;min-height:662px">	
+					
+					<!--空格-->
+					<view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
+					
+					
 					<view v-for=" (infoPerson,index) in messDetail">
 						
 						<!--A对话-->

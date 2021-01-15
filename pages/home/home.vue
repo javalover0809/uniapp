@@ -132,7 +132,7 @@
 							<view style="width:50%;min-height:25px;background-color:white;float:left">
 								<p>	 {{	infoPerson.username  }} </p>
 							</view>
-							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+							<view v-on:click="to_info_page" style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
 								<p style="font-size:10px;"> 查看主页 </p>
 							</view>
 								
@@ -593,10 +593,12 @@
 		 mounted () {
 		   
 		        this.submitSelectTalkPerson(),
+				this.submitSelectContent(),
+				
 				this.submitSelectFriend(),
 				this.submitSelectAddMe(),
 				this.submitSelectAddOther(),
-				this.submitSelectContent(),
+				
 				this.getUrl()
 		
 		    },
@@ -636,6 +638,14 @@
 				this.addMeFriend_white_flag = false
 				this.addMeFriend_grey_flag = true
 				this.submitSelectAddMe()
+			},
+			
+			to_info_page(){
+				
+				uni.navigateTo({
+					url:'../info/info'
+				})
+				
 			},
 			
 			to_allfriend_page(){
@@ -678,7 +688,7 @@
 				
 				submitSelectContent(){
 								    uni.request({
-								    	url: 'http://www.wetalk.ltd/AppSelectContent',
+								    	url: 'http://localhost/AppSelectContent',
 										method: 'GET',
 										success: (res) => {	
 											
@@ -694,8 +704,9 @@
 				 
 				 
 				 submitSelectFriend(){
+					 
 				 				    uni.request({
-				 				    	url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
+				 				    	url: 'http://localhost/AppSelectFriend?user_id=191',
 				 						method: 'GET',
 				 						success: (res) => {	
 				 							

@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/friend/friend",
+    "pages/uploadPic/uploadPic",
+    "pages/photo/photo",
+    "pages/login/login",
+    "pages/setting/setting",
+    "pages/news/news",
+    "pages/talk/talk",
+    "pages/content/content",
+    "pages/publish/publish",
+    "pages/allFriend/allFriend",
+    "pages/info/info"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "hello",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

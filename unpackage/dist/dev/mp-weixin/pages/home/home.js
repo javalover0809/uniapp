@@ -728,10 +728,12 @@ var _default =
   mounted: function mounted() {
 
     this.submitSelectTalkPerson(),
+    this.submitSelectContent(),
+
     this.submitSelectFriend(),
     this.submitSelectAddMe(),
     this.submitSelectAddOther(),
-    this.submitSelectContent(),
+
     this.getUrl();
 
   },
@@ -771,6 +773,14 @@ var _default =
       this.addMeFriend_white_flag = false;
       this.addMeFriend_grey_flag = true;
       this.submitSelectAddMe();
+    },
+
+    to_info_page: function to_info_page() {
+
+      uni.navigateTo({
+        url: '../info/info' });
+
+
     },
 
     to_allfriend_page: function to_allfriend_page() {
@@ -813,7 +823,7 @@ var _default =
 
     submitSelectContent: function submitSelectContent() {var _this2 = this;
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectContent',
+        url: 'http://localhost/AppSelectContent',
         method: 'GET',
         success: function success(res) {
 
@@ -829,8 +839,9 @@ var _default =
 
 
     submitSelectFriend: function submitSelectFriend() {var _this3 = this;
+
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
+        url: 'http://localhost/AppSelectFriend?user_id=191',
         method: 'GET',
         success: function success(res) {
 

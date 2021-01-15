@@ -196,18 +196,127 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      allFriends: null };
+
+      allFriends: null,
+      addMeFriends: null,
+      addOtherFriends: null,
+
+      allFriend_white_flag: false,
+      allFriend_grey_flag: true,
+
+      addOtherFriend_white_flag: true,
+      addOtherFriend_grey_flag: false,
+
+      addMeFriend_white_flag: true,
+      addMeFriend_grey_flag: false };
 
 
   },
 
   mounted: function mounted() {
 
-    this.submitSelectFriend();
+    this.submitSelectFriend(),
+    this.submitSelectAddMe(),
+    this.submitSelectAddOther();
+
   },
   methods: {
 
@@ -225,6 +334,74 @@ var _default =
 
 
 
+    },
+
+    submitSelectAddMe: function submitSelectAddMe() {var _this2 = this;
+      uni.request({
+        url: 'http://localhost/AppSelectAddMe?user_id=191',
+        method: 'GET',
+
+        success: function success(res) {
+
+          console.log(res.data);
+          _this2.addMeFriends = res.data;
+
+        } });
+
+
+
+
+    },
+
+    submitSelectAddOther: function submitSelectAddOther() {var _this3 = this;
+      uni.request({
+        url: 'http://localhost/AppSelectAddOther?user_id=191',
+        method: 'GET',
+
+        success: function success(res) {
+          console.log(res.data);
+          _this3.addOtherFriends = res.data;
+        } });
+
+
+
+
+    },
+
+    allFriend_fun: function allFriend_fun() {
+      this.allFriend_white_flag = false;
+      this.allFriend_grey_flag = true;
+
+      this.addOtherFriend_white_flag = true;
+      this.addOtherFriend_grey_flag = false;
+
+      this.addMeFriend_white_flag = true;
+      this.addMeFriend_grey_flag = false;
+      this.submitSelectFriend();
+    },
+
+    addOtherFriend_fun: function addOtherFriend_fun() {
+      this.allFriend_white_flag = true;
+      this.allFriend_grey_flag = false;
+
+      this.addOtherFriend_white_flag = false;
+      this.addOtherFriend_grey_flag = true;
+
+      this.addMeFriend_white_flag = true;
+      this.addMeFriend_grey_flag = false;
+      this.submitSelectAddOther();
+    },
+
+    addMeFriend_fun: function addMeFriend_fun() {
+      this.allFriend_white_flag = true;
+      this.allFriend_grey_flag = false;
+
+      this.addOtherFriend_white_flag = true;
+      this.addOtherFriend_grey_flag = false;
+
+      this.addMeFriend_white_flag = false;
+      this.addMeFriend_grey_flag = true;
+      this.submitSelectAddMe();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

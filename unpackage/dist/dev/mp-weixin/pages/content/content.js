@@ -360,8 +360,7 @@ var _default =
 
     this.submitSelectContent(),
     this.submitSelectComment(),
-    // this.submitSelectChildComment(),
-    this.getContentId();
+    this.submitSelectChildComment();
 
   },
 
@@ -389,11 +388,6 @@ var _default =
       this.input_value = null;
     },
 
-    getContentId: function getContentId() {
-
-      this.content_id = this.getUrlVar('content_id');
-
-    },
 
     submitSelectContent: function submitSelectContent() {var _this2 = this;
       uni.request({
@@ -414,7 +408,7 @@ var _default =
 
 
       uni.request({
-        url: 'http://localhost/AppSelectComment?content_id=' + '(796)',
+        url: 'http://localhost/AppSelectComment?content_id=(' + getCurrentPages()[getCurrentPages().length - 1].options.content_id + ')',
         method: 'GET',
         success: function success(res) {
 
@@ -430,7 +424,7 @@ var _default =
 
     submitSelectChildComment: function submitSelectChildComment() {var _this4 = this;
       uni.request({
-        url: 'http://localhost/AppSelectChildComment?comment_id=(1220)',
+        url: 'http://localhost/AppSelectChildComment?content_id=(' + getCurrentPages()[getCurrentPages().length - 1].options.content_id + ')',
         method: 'GET',
         success: function success(res) {
 
@@ -441,21 +435,6 @@ var _default =
         } });
 
 
-    },
-
-
-
-    getUrlVar: function getUrlVar(value) {
-      var routes = getCurrentPages(); // 获取当前打开过的页面路由数组
-      var curRoute = routes[routes.length - 1].route; //获取当前页面路由
-      var curParam = routes[routes.length - 1].options; //获取路由参数
-      console.log("当前页面的是routes" + routes);
-      console.log("当前页面的是curRoute" + curRoute);
-      console.log("当前页面的是curParam" + curParam);
-      console.log("当前页面的是curParam" + curParam.username);
-      console.log("当前页面的是curParam" + curParam.password);
-      console.log("当前页面的是to_user_id" + curParam.to_user_id);
-      return curParam.value;
     },
 
     skip: function skip(words) {console.log("跳转到video" + words);

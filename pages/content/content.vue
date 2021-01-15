@@ -131,7 +131,7 @@
 					
 					
 				<!--子评论内容-->
-				<view v-for=" (childComment,index) in childComments">
+				<view v-for=" (childComment,index) in childComments" v-if="childComment.comment_id == comment.id">
 							<!--子评论-->
 							<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 								
@@ -230,8 +230,7 @@
 		   
 		        this.submitSelectContent(),
 				this.submitSelectComment(),
-				// this.submitSelectChildComment(),
-				this.getContentId()
+				this.submitSelectChildComment()
 		
 		    },
 		
@@ -259,11 +258,6 @@
 						this.input_value = null
 				},
 
-			    getContentId(){
-					
-					this.content_id	= this.getUrlVar('content_id')
-
-				},
 		
 				submitSelectContent(){
 								    uni.request({
@@ -284,7 +278,7 @@
 				
 
 				uni.request({
-								url: 'http://localhost/AppSelectComment?content_id='+'(796)',
+								url: 'http://localhost/AppSelectComment?content_id=('+ getCurrentPages()[getCurrentPages().length - 1].options.content_id + ')',
 								method: 'GET',
 								success: (res) => {	
 											
@@ -300,7 +294,7 @@
 				
 			submitSelectChildComment(){
 						uni.request({
-							url: 'http://localhost/AppSelectChildComment?comment_id=(1220)',
+							url: 'http://localhost/AppSelectChildComment?content_id=(' + getCurrentPages()[getCurrentPages().length - 1].options.content_id + ')',
 							method: 'GET',
 							success: (res) => {	
 										
@@ -312,21 +306,6 @@
 						})
 			
 			    },
-			
-			
-				 
-			getUrlVar(value){
-				let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
-				let curRoute = routes[routes.length - 1].route //获取当前页面路由
-				let curParam = routes[routes.length - 1].options; //获取路由参数
-				console.log("当前页面的是routes" + routes)
-				console.log("当前页面的是curRoute" + curRoute)
-				console.log("当前页面的是curParam" + curParam)
-				console.log("当前页面的是curParam" + curParam.username)
-				console.log("当前页面的是curParam" + curParam.password)
-				console.log("当前页面的是to_user_id" + curParam.to_user_id)
-				return curParam.value
-			},
 			
 			skip(words){console.log("跳转到video" + words)
 			                

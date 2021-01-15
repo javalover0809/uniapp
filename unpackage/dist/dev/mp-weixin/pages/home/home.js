@@ -629,6 +629,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -639,6 +706,8 @@ var _default =
       manageTalkPersons: null,
       infoContents: null,
       allFriends: null,
+      addMeFriends: null,
+      addOtherFriends: null,
 
       mess_flag: false,
       friend_flag: true,
@@ -660,6 +729,8 @@ var _default =
 
     this.submitSelectTalkPerson(),
     this.submitSelectFriend(),
+    this.submitSelectAddMe(),
+    this.submitSelectAddOther(),
     this.submitSelectContent(),
     this.getUrl();
 
@@ -675,6 +746,7 @@ var _default =
 
       this.addMeFriend_white_flag = true;
       this.addMeFriend_grey_flag = false;
+      this.submitSelectFriend();
     },
 
     addOtherFriend_fun: function addOtherFriend_fun() {
@@ -686,6 +758,7 @@ var _default =
 
       this.addMeFriend_white_flag = true;
       this.addMeFriend_grey_flag = false;
+      this.submitSelectAddOther();
     },
 
     addMeFriend_fun: function addMeFriend_fun() {
@@ -697,6 +770,7 @@ var _default =
 
       this.addMeFriend_white_flag = false;
       this.addMeFriend_grey_flag = true;
+      this.submitSelectAddMe();
     },
 
     to_allfriend_page: function to_allfriend_page() {
@@ -753,6 +827,7 @@ var _default =
 
     },
 
+
     submitSelectFriend: function submitSelectFriend() {var _this3 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
@@ -761,6 +836,40 @@ var _default =
 
           console.log(res.data);
           _this3.allFriends = res.data;
+
+        } });
+
+
+
+
+    },
+
+    submitSelectAddMe: function submitSelectAddMe() {var _this4 = this;
+      uni.request({
+        url: 'http://localhost/AppSelectAddMe?user_id=191',
+        method: 'GET',
+
+        success: function success(res) {
+
+          console.log(res.data);
+          _this4.addMeFriends = res.data;
+
+        } });
+
+
+
+
+    },
+
+    submitSelectAddOther: function submitSelectAddOther() {var _this5 = this;
+      uni.request({
+        url: 'http://localhost/AppSelectAddOther?user_id=191',
+        method: 'GET',
+
+        success: function success(res) {
+
+          console.log(res.data);
+          _this5.addOtherFriends = res.data;
 
         } });
 
@@ -859,14 +968,14 @@ var _default =
 
     },
 
-    submitSelectMess: function submitSelectMess(user_id) {var _this4 = this;
+    submitSelectMess: function submitSelectMess(user_id) {var _this6 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + user_id,
 
         method: 'GET',
         success: function success(res) {
           console.log(res.data);
-          _this4.messDetail = res.data;
+          _this6.messDetail = res.data;
 
 
         } });

@@ -118,7 +118,7 @@
 				 <!--分割线-->
 			    <view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:3px;float:left;"></view>
 				
-				<view v-for=" (infoPerson,index) in allFriends">
+				<view v-for=" (infoPerson,index) in allFriends" v-if="allFriend_grey_flag">
 					
 					<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
 						
@@ -151,6 +151,73 @@
 					
 				</view>
 		
+		
+		<view v-for=" (infoPerson,index) in addMeFriends" v-if="addMeFriend_grey_flag">
+			
+			<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
+				
+				<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
+				
+			</view>
+			
+			<view style="width:80%;height:50px;background-color:white;float:left">
+				<view style="width:80%;min-height:25px;background-color:white;float:left">
+					
+					<view style="width:50%;min-height:25px;background-color:white;float:left">
+						<p>	 {{	infoPerson.username  }} </p>
+					</view>
+					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+						<p style="font-size:10px;"> 查看主页 </p>
+					</view>
+						
+				</view>
+				<view style="width:80%;height:25px;background-color:white;float:left">
+					<view style="width:50%;min-height:25px;background-color:white;float:left">
+					</view>
+					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+						<p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p>
+					</view>
+				</view>
+			</view>
+			
+			<!--分割线-->
+			<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+			
+		</view>
+		
+		
+		<view v-for=" (infoPerson,index) in addOtherFriends" v-if="addOtherFriend_grey_flag">
+			
+			<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
+				
+				<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
+				
+			</view>
+			
+			<view style="width:80%;height:50px;background-color:white;float:left">
+				<view style="width:80%;min-height:25px;background-color:white;float:left">
+					
+					<view style="width:50%;min-height:25px;background-color:white;float:left">
+						<p>	 {{	infoPerson.username  }} </p>
+					</view>
+					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+						<p style="font-size:10px;"> 查看主页 </p>
+					</view>
+						
+				</view>
+				<view style="width:80%;height:25px;background-color:white;float:left">
+					<view style="width:50%;min-height:25px;background-color:white;float:left">
+					</view>
+					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+						<p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p>
+					</view>
+				</view>
+			</view>
+			
+			<!--分割线-->
+			<view style="background-color:rgb(234,234,236);border-bottom:1px solid rgb(234,234,236);width:100%;height:1px;float:left;"></view>
+			
+		</view>
 
 	</view>	
 	
@@ -504,6 +571,8 @@
 				manageTalkPersons: null,
 				infoContents: null,
 				allFriends: null,
+				addMeFriends: null,
+				addOtherFriends: null,
 				
 				mess_flag: false,
 				friend_flag: true,
@@ -525,6 +594,8 @@
 		   
 		        this.submitSelectTalkPerson(),
 				this.submitSelectFriend(),
+				this.submitSelectAddMe(),
+				this.submitSelectAddOther(),
 				this.submitSelectContent(),
 				this.getUrl()
 		
@@ -540,6 +611,7 @@
 				
 				this.addMeFriend_white_flag = true
 				this.addMeFriend_grey_flag = false
+				this.submitSelectFriend()
 			},
 			
 			addOtherFriend_fun(){
@@ -551,6 +623,7 @@
 				
 				this.addMeFriend_white_flag = true
 				this.addMeFriend_grey_flag = false
+				this.submitSelectAddOther()
 			},
 			
 			addMeFriend_fun(){
@@ -562,6 +635,7 @@
 				
 				this.addMeFriend_white_flag = false
 				this.addMeFriend_grey_flag = true
+				this.submitSelectAddMe()
 			},
 			
 			to_allfriend_page(){
@@ -618,6 +692,7 @@
 								  
 				 },
 				 
+				 
 				 submitSelectFriend(){
 				 				    uni.request({
 				 				    	url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
@@ -633,6 +708,40 @@
 				 				    })
 				 				  
 				  },
+				  
+				  submitSelectAddMe(){
+				  				    uni.request({
+				  				    	url: 'http://localhost/AppSelectAddMe?user_id=191',
+				  						method: 'GET',
+										
+				  						success: (res) => {	
+				  							
+				  							 console.log(res.data)
+				  							 this.addMeFriends = res.data		 
+				  												
+				  						}
+				  						
+				  						
+				  				    })
+				  				  
+				   },
+				   
+				  submitSelectAddOther(){
+				   				    uni.request({
+				   				    	url: 'http://localhost/AppSelectAddOther?user_id=191',
+				   						method: 'GET',
+				   										
+				   						success: (res) => {	
+				   							
+				   							 console.log(res.data)
+				   							 this.addOtherFriends = res.data		 
+				   												
+				   						}
+				   						
+				   						
+				   				    })
+				   				  
+				    },
 
 		
 			//跳转消息

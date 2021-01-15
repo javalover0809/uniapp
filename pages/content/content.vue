@@ -41,13 +41,13 @@
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ⬆
+							 ↑
 							
 						</view>
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ⬇
+							 ↓
 							
 						</view>
 						

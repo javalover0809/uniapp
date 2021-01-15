@@ -154,6 +154,9 @@
 							<p style="color:black;font-size:14px">
 								{{	content.content  }}
 							</p>	
+							<view v-if="content.pic_url1 != null">
+								<image v-bind:src="[ 'http://www.wetalk.ltd/' + content.pic_url1 ]" style="width:280px;height:280px"></image>
+							</view>
 						</view>
 					</view>
 					
@@ -445,8 +448,8 @@
 				
 				mess_flag: false,
 				friend_flag: false,
-				news_flag: false,
-				my_flag: true
+				news_flag: true,
+				my_flag: false
 				
 				
 				
@@ -550,6 +553,7 @@
 					url:'../talk/talk?to_user_id=' + user_id
 				})
 			},
+			
 			to_content_page(content_id){
 				
 				uni.navigateTo({

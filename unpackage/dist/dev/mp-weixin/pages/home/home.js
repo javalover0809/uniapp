@@ -567,6 +567,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -580,8 +583,8 @@ var _default =
 
       mess_flag: false,
       friend_flag: false,
-      news_flag: false,
-      my_flag: true };
+      news_flag: true,
+      my_flag: false };
 
 
 
@@ -685,6 +688,7 @@ var _default =
         url: '../talk/talk?to_user_id=' + user_id });
 
     },
+
     to_content_page: function to_content_page(content_id) {
 
       uni.navigateTo({

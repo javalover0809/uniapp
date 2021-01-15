@@ -601,6 +601,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -613,12 +641,18 @@ var _default =
       allFriends: null,
 
       mess_flag: false,
-      friend_flag: false,
+      friend_flag: true,
       news_flag: false,
-      my_flag: true };
+      my_flag: false,
 
+      allFriend_white_flag: false,
+      allFriend_grey_flag: true,
 
+      addOtherFriend_white_flag: true,
+      addOtherFriend_grey_flag: false,
 
+      addMeFriend_white_flag: true,
+      addMeFriend_grey_flag: false };
 
 
   },
@@ -632,6 +666,38 @@ var _default =
   },
 
   methods: {
+    allFriend_fun: function allFriend_fun() {
+      this.allFriend_white_flag = false;
+      this.allFriend_grey_flag = true;
+
+      this.addOtherFriend_white_flag = true;
+      this.addOtherFriend_grey_flag = false;
+
+      this.addMeFriend_white_flag = true;
+      this.addMeFriend_grey_flag = false;
+    },
+
+    addOtherFriend_fun: function addOtherFriend_fun() {
+      this.allFriend_white_flag = true;
+      this.allFriend_grey_flag = false;
+
+      this.addOtherFriend_white_flag = false;
+      this.addOtherFriend_grey_flag = true;
+
+      this.addMeFriend_white_flag = true;
+      this.addMeFriend_grey_flag = false;
+    },
+
+    addMeFriend_fun: function addMeFriend_fun() {
+      this.allFriend_white_flag = true;
+      this.allFriend_grey_flag = false;
+
+      this.addOtherFriend_white_flag = true;
+      this.addOtherFriend_grey_flag = false;
+
+      this.addMeFriend_white_flag = false;
+      this.addMeFriend_grey_flag = true;
+    },
 
     to_allfriend_page: function to_allfriend_page() {
 

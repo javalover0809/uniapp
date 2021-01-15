@@ -214,10 +214,30 @@
 						<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
 					</view>
 					<view style="width:100%;height:100px;background-color:white;float:left;">
-						<p style="font-size:14px;color:black;"> 发送消息 </p>
-						<p style="font-size:14px;color:black;"> 戳一下 </p>
-						<p style="font-size:14px;color:black;"> 添加好友 </p>
-						<p style="font-size:14px;color:black;"> 屏蔽 </p>
+					  <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">	
+						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
+							<p style="font-size:14px;color:white;"> 发送消息 </p>
+						</view>	
+					 </view>	
+					 
+					 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
+					 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
+					 							<p style="font-size:14px;color:white;"> 戳一下 </p>
+					 						</view>	
+					 </view>	
+					 
+					 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
+					 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
+					 							<p style="font-size:14px;color:white;"> 添加好友 </p>
+					 						</view>	
+					 </view>	
+					 
+					 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
+					 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
+					 							<p style="font-size:14px;color:white;"> 屏蔽 </p>
+					 						</view>	
+					 </view>	
+				
 					</view>
 				</view>
 				
@@ -448,8 +468,8 @@
 				
 				mess_flag: false,
 				friend_flag: false,
-				news_flag: true,
-				my_flag: false
+				news_flag: false,
+				my_flag: true
 				
 				
 				

@@ -570,6 +570,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -583,8 +603,8 @@ var _default =
 
       mess_flag: false,
       friend_flag: false,
-      news_flag: true,
-      my_flag: false };
+      news_flag: false,
+      my_flag: true };
 
 
 

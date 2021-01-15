@@ -53,8 +53,11 @@
 	
 	
 	
-	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+	<view v-else-if="friend_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
 
+				<!--空格-->
+			    <view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
+			    
 					<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 						
 						<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">

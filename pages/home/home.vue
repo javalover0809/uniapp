@@ -51,7 +51,6 @@
 	
 	
 	
-	
 	<view v-else-if="friend_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
 
 					<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
@@ -205,8 +204,10 @@
 	
 	
 	
-	<view v-else-if="my_flag" style="background-color:white;width:100%;height:100%;min-height:662px">
+	<view v-else-if="my_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
 		
+			<view style="width:100%;height:70px;background-color:red;float:left;">
+			</view>
 			<view style="width:100%;min-height:80px;height:auto;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
 				
 				<view style="width:22%;height:180px;background-color:white;float:left;">
@@ -368,7 +369,11 @@
 					<view v-on:click="to_content_page(content.id)"  style="width:90%;min-height:25px;height:auto;background-color:white;float:left">
 						<p style="color:black;font-size:14px">
 							{{	content.content  }}
-						</p>	
+						</p>
+							
+						<view v-if="content.pic_url1 != null">
+							<image v-bind:src="[ 'http://www.wetalk.ltd/' + content.pic_url1 ]" style="width:280px;height:280px"></image>
+						</view>
 					</view>
 				</view>
 				
@@ -417,7 +422,7 @@
 		<p v-on:click="publish_content">发布</p>
 	</view>
 	
-	<view style="position:fixed;bottom:10px;background-color:rgb(234,234,236);width:100%;height:60px">
+	<view style="display:show;position:fixed;bottom:10px;background-color:rgb(234,234,236);width:100%;height:60px">
 		<!--底部信息-->
 			<view v-on:click="mess_fun" style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 					<p style="color:black" align="middle" v-on:click="submitSelectTalkPerson">消息</p>

@@ -350,7 +350,7 @@
 							 <p style="font-size:14px;color:grey;display:inline;"> 姓名: </p>
 						</view>
 						<view style="background-color:white;width:75%;height:30px;float:left;">
-							<p style="font-size:14px;display:inline;"> 唐国洁 </p>
+							<p style="font-size:14px;display:inline;"> {{ personalInfo.username }} </p>
 						</view>
 					</view>	
 					
@@ -360,7 +360,7 @@
 							 <p style="font-size:14px;color:grey;display:inline;"> 性别: </p>
 						</view>
 						<view style="background-color:white;width:75%;height:30px;float:left;">
-							<p style="font-size:14px;display:inline;"> 男生 </p>
+							<p style="font-size:14px;display:inline;"> {{ personalInfo.sex_name }} </p>
 						</view>
 					</view>	
 					
@@ -369,7 +369,11 @@
 							 <p style="font-size:14px;color:grey;display:inline;"> 生日: </p>
 						</view>
 						<view style="background-color:white;width:75%;height:30px;float:left;">
-							<p style="font-size:14px;display:inline;"> 1994年 9月 24日 </p>
+							<p style="font-size:14px;display:inline;"> 
+							{{ personalInfo.birth_year }} 年
+							{{ personalInfo.birth_month }} 月
+							{{ personalInfo.birth_day }} 日
+							</p>
 						</view>
 					</view>	
 					
@@ -378,7 +382,9 @@
 							 <p style="font-size:14px;color:grey;display:inline;">  感情状态: </p>
 						</view>
 						<view style="background-color:white;width:75%;height:30px;float:left;">
-							<p style="font-size:14px;display:inline;"> 单身 </p>
+							<p style="font-size:14px;display:inline;"> 
+							{{ personalInfo.status_name }}
+							</p>
 						</view>
 					</view>	
 					
@@ -387,11 +393,13 @@
 							 <p style="font-size:14px;color:grey;display:inline;">  大学: </p>
 						</view>
 						<view style="background-color:white;width:75%;height:30px;float:left;">
-							<p style="font-size:14px;display:inline;"> 北京交通大学 2018级 硕士 </p>
+							<p style="font-size:14px;display:inline;"> 
+							 {{ personalInfo.university }} 
+							 {{ personalInfo.student_grade }} 
+							 {{ personalInfo.student_type }} 
+							</p>
 						</view>
-					</view>	
-			
-					
+					</view>					
 				</view>
 				
 			</view>
@@ -569,14 +577,14 @@
 				mess_search_value: null,
 				
 				manageTalkPersons: null,
-				MyBasInfo: null,
+				personalInfo: null,
 				infoContents: null,
 				allFriends: null,
 				addMeFriends: null,
 				addOtherFriends: null,
 				
 				mess_flag: false,
-				friend_MyBasInfoflag: true,
+				friend_flag: true,
 				news_flag: false,
 				my_flag: false,
 				
@@ -599,6 +607,7 @@
 				this.submitSelectFriend(),
 				this.submitSelectAddMe(),
 				this.submitSelectAddOther(),
+				this.submitSelectInfo(),
 				
 				this.getUrl()
 		
@@ -670,14 +679,16 @@
 			 console.log("这里进行内容搜索:" + this.mess_search_value)
 			},
 			
-			submitSelectMyBasInfo(){
-					uni.request({
-						url:'http://localhost/AppSelectMyBasInfo?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.user_id,
-						method:'GET',
-						success:(res) => {
-							this.MyBasInfo = res.data
-						}
-					})
+			submitSelectInfo(){
+				
+				uni.request({
+					url:'http://localhost/AppSelectInfo?user_id=191',
+					method:'GET',
+					success:(res) => {
+						this.personalInfo = res.data
+					}
+				})
+				
 			},
 			
 			
@@ -714,15 +725,11 @@
 				 
 				 
 				 submitSelectFriend(){
-					 
 				 				    uni.request({
-				 				    	url: 'http://localhost/AppSelectFriend?user_id=191',
+				 				    	url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
 				 						method: 'GET',
 				 						success: (res) => {	
-				 							
-				 							 console.log(res.data)
-				 							 this.allFriends = res.data		 
-				 												
+				 							 this.allFriends = res.data		 						
 				 						}
 				 						
 				 						

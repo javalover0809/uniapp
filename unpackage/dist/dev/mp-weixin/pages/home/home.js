@@ -696,6 +696,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -704,14 +712,14 @@ var _default =
       mess_search_value: null,
 
       manageTalkPersons: null,
-      MyBasInfo: null,
+      personalInfo: null,
       infoContents: null,
       allFriends: null,
       addMeFriends: null,
       addOtherFriends: null,
 
       mess_flag: false,
-      friend_MyBasInfoflag: true,
+      friend_flag: true,
       news_flag: false,
       my_flag: false,
 
@@ -734,6 +742,7 @@ var _default =
     this.submitSelectFriend(),
     this.submitSelectAddMe(),
     this.submitSelectAddOther(),
+    this.submitSelectInfo(),
 
     this.getUrl();
 
@@ -805,13 +814,15 @@ var _default =
       console.log("这里进行内容搜索:" + this.mess_search_value);
     },
 
-    submitSelectMyBasInfo: function submitSelectMyBasInfo() {var _this = this;
+    submitSelectInfo: function submitSelectInfo() {var _this = this;
+
       uni.request({
-        url: 'http://localhost/AppSelectMyBasInfo?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.user_id,
+        url: 'http://localhost/AppSelectInfo?user_id=191',
         method: 'GET',
         success: function success(res) {
-          _this.MyBasInfo = res.data;
+          _this.personalInfo = res.data;
         } });
+
 
     },
 
@@ -849,15 +860,11 @@ var _default =
 
 
     submitSelectFriend: function submitSelectFriend() {var _this4 = this;
-
       uni.request({
-        url: 'http://localhost/AppSelectFriend?user_id=191',
+        url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
         method: 'GET',
         success: function success(res) {
-
-          console.log(res.data);
           _this4.allFriends = res.data;
-
         } });
 
 

@@ -272,13 +272,13 @@
 							
 							<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 								
-								 ↑
+								 ⬆
 	
 							</view>
 							
 							<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 								
-								 ↓
+								 ⬇
 								
 							</view>
 							
@@ -453,7 +453,7 @@
 			<!--分隔-->
 			<view style="background-color:rgb(234,234,236);border-bottom:0px solid rgb(234,234,236);width:100%;height:10px;float:left;"></view>
 						
-			<view v-for=" (content,index) in infoContents" >
+			<view v-for=" (content,index) in infoContents"  v-if="content.user_id == '191' ">
 				
 				<view style="width:20%;min-height:50px;height:auto;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 					
@@ -489,13 +489,13 @@
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ↑
+							 ⬆
 				
 						</view>
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ↓
+							 ⬇
 							
 						</view>
 						
@@ -569,13 +569,14 @@
 				mess_search_value: null,
 				
 				manageTalkPersons: null,
+				MyBasInfo: null,
 				infoContents: null,
 				allFriends: null,
 				addMeFriends: null,
 				addOtherFriends: null,
 				
 				mess_flag: false,
-				friend_flag: true,
+				friend_MyBasInfoflag: true,
 				news_flag: false,
 				my_flag: false,
 				
@@ -669,6 +670,16 @@
 			 console.log("这里进行内容搜索:" + this.mess_search_value)
 			},
 			
+			submitSelectMyBasInfo(){
+					uni.request({
+						url:'http://localhost/AppSelectMyBasInfo?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.user_id,
+						method:'GET',
+						success:(res) => {
+							this.MyBasInfo = res.data
+						}
+					})
+			},
+			
 			
 			   submitSelectTalkPerson(){
 				    uni.request({
@@ -680,8 +691,7 @@
 							 this.manageTalkPersons = res.data		 
 												
 						}
-						
-						
+		
 				    })
 				  
 			    },
@@ -847,7 +857,6 @@
 			    submitSelectMess(user_id){
 					uni.request({
 						url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + user_id ,
-										
 										method: 'GET',
 										success: (res) => {	
 											console.log(res.data)

@@ -391,7 +391,7 @@ var _default =
 
     submitSelectContent: function submitSelectContent() {var _this2 = this;
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectContent',
+        url: 'http://localhost/AppSelectContentById?content_id=' + getCurrentPages()[getCurrentPages().length - 1].options.content_id,
         method: 'GET',
         success: function success(res) {
 

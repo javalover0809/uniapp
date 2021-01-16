@@ -6,7 +6,7 @@
 	
 	<view style="background-color:white;width:100%;height:100%;min-height:662px">
 			
-			<view v-for=" (content,index) in infoContents" v-if="index == 0">
+			<view v-for=" (content,index) in infoContents">
 			  <!--主评内容-->
 			  <view style="width:100%;height:auto">
 
@@ -41,13 +41,13 @@
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ↑
+							 ⬆
 							
 						</view>
 						
 						<view style="width:50%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
-							 ↓
+							 ⬇
 							
 						</view>
 						
@@ -261,7 +261,7 @@
 		
 				submitSelectContent(){
 								    uni.request({
-								    	url: 'http://www.wetalk.ltd/AppSelectContent',
+								    	url: 'http://localhost/AppSelectContentById?content_id=' + getCurrentPages()[getCurrentPages().length - 1].options.content_id ,
 										method: 'GET',
 										success: (res) => {	
 											

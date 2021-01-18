@@ -207,31 +207,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       mess_content: null,
-      messDetail: null };
+      messDetail: null,
+      user_my_id: null };
 
 
   },
 
   mounted: function mounted() {
 
-    this.submitSelectMess();
+    this.submitSelectMess(),
+    this.submitSelectMyUserId();
 
   },
 
   methods: {
+    submitSelectMyUserId: function submitSelectMyUserId() {var _this = this;
+
+      uni.getStorage({
+
+        key: 'user_my_id',
+        success: function success(res) {
+          console.log("这个数据是这样的吧" + res.data);
+          _this.user_my_id = res.data;
+          console.log("user_my_id这个数据是这样的吧" + _this.user_my_id);
+        } });
+
+
+
+    },
+
     mess_content_fun: function mess_content_fun(e) {
       this.mess_content = e.target.value;
       console.log("输入的数据是:" + this.mess_content);
     },
+
     sendMess: function sendMess() {
 
       uni.request({
-        url: 'http://localhost/AppInsertMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id + '&mess_content=' + this.mess_content,
+        url: 'http://localhost/AppInsertMess?user_id=' + this.user_my_id + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id + '&mess_content=' + this.mess_content,
         method: 'POST' });
 
       this.mess_content = null;
@@ -240,14 +266,15 @@ var _default =
     },
 
 
-    submitSelectMess: function submitSelectMess() {var _this = this;
+    submitSelectMess: function submitSelectMess() {var _this2 = this;
+      this.submitSelectMyUserId();
 
       uni.request({
-        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
+        url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + this.user_my_id + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
         method: 'GET',
         success: function success(res) {
           console.log(res.data);
-          _this.messDetail = res.data;
+          _this2.messDetail = res.data;
         } });
 
 

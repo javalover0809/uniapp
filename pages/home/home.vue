@@ -529,17 +529,22 @@
 	
 	<view v-if="news_flag == true"  style="position:fixed;bottom:100px;left:300px;background-color:white;width:20%;height:60px;border-radius:100px;align-items:center;justify-content:center;display:flex;">
 		<p v-on:click="publish_content">发布</p>
+		<p @click="vibrate">振动</p>
+		<p v-on:click="getLocation">定位</p>
+		<p v-on:click="setData('user_my_id','191')">写入</p>
+		<p v-on:click="getData('user_my_id')">读出</p>
 	</view>
+	
 	
 	<view style="display:show;position:fixed;bottom:10px;background-color:rgb(234,234,236);width:100%;height:60px">
 		<!--底部信息-->
 			<view v-on:click="mess_fun" style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
+					
 					<p style="color:black" align="middle" v-on:click="submitSelectTalkPerson">消息</p>
 			</view>
 			
 			<view v-on:click="friend_fun" style="background-color:rgb(234,234,236);width:25%;height:100%;min-height:50px;float:left;align-items:center;justify-content:center;display:flex;">
 				
-					
 					<p style="color:black" align="middle" v-on:click="submitSelectFriend">好友</p>
 					
 			</view>
@@ -578,13 +583,14 @@
 				
 				manageTalkPersons: null,
 				personalInfo: null,
+				
 				infoContents: null,
 				allFriends: null,
 				addMeFriends: null,
 				addOtherFriends: null,
 				
-				mess_flag: false,
-				friend_flag: true,
+				mess_flag: true,
+				friend_flag: false,
 				news_flag: false,
 				my_flag: false,
 				
@@ -602,8 +608,8 @@
 		 mounted () {
 		   
 		        this.submitSelectTalkPerson(),
+				this.setData('user_my_id','191'),
 				this.submitSelectContent(),
-				
 				this.submitSelectFriend(),
 				this.submitSelectAddMe(),
 				this.submitSelectAddOther(),
@@ -614,6 +620,60 @@
 		    },
 		
 		methods: {
+			
+			vibrate() {
+							uni.vibrateShort({
+								success: function() {
+									console.log('success');
+								}
+							});
+			},
+			getData(key){
+				
+				uni.getStorage({
+				    key: key,
+				    success: function (res) {
+				        console.log("获取存储的数据:" + res.data);
+				    }
+				});
+				
+			},
+			
+			setData(key,value){
+				
+				uni.setStorage({
+				    key: key,
+				    data: value,
+				    success: function () {
+				        console.log('成功写入了success');
+						
+				    }
+				});
+				
+			},
+			
+			
+			getLocation(){
+				
+				uni.getLocation({
+				    type: 'gcj02', //返回可以用于uni.openLocation的经纬度
+				    success: function (res) {
+				        const latitude = res.latitude;
+				        const longitude = res.longitude;
+				        uni.openLocation({
+				            latitude: latitude,
+				            longitude: longitude,
+				            success: function () {
+				                console.log('success');
+				            }
+				        });
+				    }
+				});
+				
+			},
+			
+			
+			
 			allFriend_fun(){
 				this.allFriend_white_flag = false
 				this.allFriend_grey_flag = true

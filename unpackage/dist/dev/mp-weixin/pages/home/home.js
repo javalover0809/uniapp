@@ -704,6 +704,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -713,13 +718,14 @@ var _default =
 
       manageTalkPersons: null,
       personalInfo: null,
+
       infoContents: null,
       allFriends: null,
       addMeFriends: null,
       addOtherFriends: null,
 
-      mess_flag: false,
-      friend_flag: true,
+      mess_flag: true,
+      friend_flag: false,
       news_flag: false,
       my_flag: false,
 
@@ -737,8 +743,8 @@ var _default =
   mounted: function mounted() {
 
     this.submitSelectTalkPerson(),
+    this.setData('user_my_id', '191'),
     this.submitSelectContent(),
-
     this.submitSelectFriend(),
     this.submitSelectAddMe(),
     this.submitSelectAddOther(),
@@ -749,6 +755,60 @@ var _default =
   },
 
   methods: {
+
+    vibrate: function vibrate() {
+      uni.vibrateShort({
+        success: function success() {
+          console.log('success');
+        } });
+
+    },
+    getData: function getData(key) {
+
+      uni.getStorage({
+        key: key,
+        success: function success(res) {
+          console.log("获取存储的数据:" + res.data);
+        } });
+
+
+    },
+
+    setData: function setData(key, value) {
+
+      uni.setStorage({
+        key: key,
+        data: value,
+        success: function success() {
+          console.log('成功写入了success');
+
+        } });
+
+
+    },
+
+
+    getLocation: function getLocation() {
+
+      uni.getLocation({
+        type: 'gcj02', //返回可以用于uni.openLocation的经纬度
+        success: function success(res) {
+          var latitude = res.latitude;
+          var longitude = res.longitude;
+          uni.openLocation({
+            latitude: latitude,
+            longitude: longitude,
+            success: function success() {
+              console.log('success');
+            } });
+
+        } });
+
+
+    },
+
+
+
     allFriend_fun: function allFriend_fun() {
       this.allFriend_white_flag = false;
       this.allFriend_grey_flag = true;

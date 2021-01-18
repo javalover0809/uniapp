@@ -9,7 +9,8 @@
 					<view v-for=" (infoPerson,index) in messDetail">
 						
 						<!--A对话-->
-						<view v-if="infoPerson.user_id != '191'">
+						<view v-if="infoPerson.user_id != user_my_id ">
+							
 						<view style="width:20%;min-height:50px;background-color:white;height:auto;float:left">
 							
 							<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
@@ -20,25 +21,31 @@
 						<view style="width:80%;height:50px;background-color:white;float:left">
 
 								<p style="color:black;font-size:10px">{{	infoPerson.mess_content  }}</p>	
+								<p style="color:grey;font-size:7px">{{	infoPerson.create_time  }}</p>	
 
 						</view>
 						</view>
 					     
 						<!--B对话-->
-						<view v-if="infoPerson.user_id == '191'">
+						<view v-if="infoPerson.user_id == user_my_id">
 						<view style="width:20%;min-height:50px;background-color:white;height:auto;float:right">
 							
 							<image v-bind:src="[ 'http://www.wetalk.ltd/' + infoPerson.head_url ]" style="width:50px;height:45px"></image>
 							
 						</view>
 						
+						<view style="width:5%;min-height:50px;background-color:white;height:auto;float:right">
+
+						</view>
 						
-						<view style="width:80%;height:50px;background-color:white;float:left">
-						     
-							  <view style="width:70%;height:50px;background-color:white;float:left">
-							  </view>
-							  <view style="width:30%;height:50px;background-color:white;float:right">
-								  <p style="color:black;font-size:10px" align="right">{{	infoPerson.mess_content  }}</p>
+						
+						<view style="width:75%;height:50px;background-color:white;float:left">
+
+							  <view style="text-align:right;width:100%;height:50px;background-color:white;float:left">
+								  
+								  <p style="color:black;font-size:10px">{{ infoPerson.mess_content }}</p>
+								  <p style="color:grey;font-size:7px">  {{ infoPerson.create_time }} </p>
+								  
 							  </view>
 									
 						</view>
@@ -61,6 +68,7 @@
 					
 					<p style="background-color:white;font-size:18px" v-on:click="sendMess()"> 发送 </p>
 					<p style="background-color:white;font-size:18px" v-on:click="submitSelectMess()"> 拉取 </p>
+					<p style="background-color:white;font-size:18px" v-on:click="submitSelectMyUserId()"> get </p>
 						
 				</view>	
 				<view style="width:3%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
@@ -82,26 +90,44 @@
 		data() {
 			return {
 				mess_content: null, 
-				messDetail:null
+				messDetail: null,
+				user_my_id: null
 				
 			}
 		},
 		
 		mounted () {
 		  
-		       this.submitSelectMess()
+		       this.submitSelectMess(),
+			   this.submitSelectMyUserId()
 				
 		   },
 		
 		methods: {
+			 submitSelectMyUserId(){
+				 
+				 uni.getStorage({
+					 
+				    key: 'user_my_id',
+				    success:(res) => {
+						 console.log("这个数据是这样的吧" + res.data)
+						 this.user_my_id = res.data
+						 console.log("user_my_id这个数据是这样的吧" + this.user_my_id)
+				     }
+					 
+				 })
+				 
+			},
+			
 			mess_content_fun(e) {  
 			                this.mess_content = e.target.value  
 							console.log("输入的数据是:" + this.mess_content)	
 			},  
+			
 			sendMess(){
 
 				uni.request({
-					url:'http://localhost/AppInsertMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id + '&mess_content=' + this.mess_content,
+					url:'http://localhost/AppInsertMess?user_id=' + this.user_my_id + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id + '&mess_content=' + this.mess_content,
 					method:'POST'
 				})
 				this.mess_content = null
@@ -111,9 +137,10 @@
 			
 						
 			submitSelectMess(){
+				this.submitSelectMyUserId()
 				
 				uni.request({
-					url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
+					url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + this.user_my_id + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
 					method: 'GET',
 					success: (res) => {	
 					  console.log(res.data)

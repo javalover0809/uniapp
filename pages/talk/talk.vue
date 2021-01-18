@@ -68,7 +68,8 @@
 					
 					<p style="background-color:white;font-size:18px" v-on:click="sendMess()"> 发送 </p>
 					<p style="background-color:white;font-size:18px" v-on:click="submitSelectMess()"> 拉取 </p>
-					<p style="background-color:white;font-size:18px" v-on:click="submitSelectMyUserId()"> get </p>
+				
+						
 						
 				</view>	
 				<view style="width:3%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
@@ -85,6 +86,7 @@
 	</view>
 </template>
 
+
 <script>
 	export default {
 		data() {
@@ -99,24 +101,16 @@
 		mounted () {
 		  
 		       this.submitSelectMess(),
-			   this.submitSelectMyUserId()
+			   this.getMyUserId()
 				
 		   },
 		
 		methods: {
-			 submitSelectMyUserId(){
-				 
-				 uni.getStorage({
-					 
-				    key: 'user_my_id',
-				    success:(res) => {
-						 console.log("这个数据是这样的吧" + res.data)
-						 this.user_my_id = res.data
-						 console.log("user_my_id这个数据是这样的吧" + this.user_my_id)
-				     }
-					 
-				 })
-				 
+		  
+			
+			
+			getMyUserId(){
+				this.user_my_id = getCurrentPages()[getCurrentPages().length - 1].options.user_my_id
 			},
 			
 			mess_content_fun(e) {  
@@ -137,8 +131,8 @@
 			
 						
 			submitSelectMess(){
-				this.submitSelectMyUserId()
 				
+				this.getMyUserId()
 				uni.request({
 					url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + this.user_my_id + '&to_user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
 					method: 'GET',
@@ -147,8 +141,7 @@
 					  this.messDetail = res.data
 					  }
 				   })
-				   
-				   
+  
 			   }
 			
 		}

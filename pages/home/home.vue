@@ -578,7 +578,7 @@
 	export default {
 		data() {
 			return {
-				user_my_id:	'191',
+				user_my_id:	null,
 				mess_search_value: null,
 				
 				manageTalkPersons: null,
@@ -614,6 +614,7 @@
 				this.submitSelectAddMe(),
 				this.submitSelectAddOther(),
 				this.submitSelectInfo(),
+				this.submitSelectMyUserId(),
 				
 				this.getUrl()
 		
@@ -739,6 +740,23 @@
 			 console.log("这里进行内容搜索:" + this.mess_search_value)
 			},
 			
+			
+			submitSelectMyUserId(){
+				 
+				 uni.getStorage({
+					 
+				    key: 'user_my_id',
+				    success:(res) => {
+						 console.log("这个数据是这样的吧" + res.data)
+						 this.user_my_id = res.data
+						 console.log("user_my_id这个数据是这样的吧" + this.user_my_id)
+				     }
+					 
+				 })
+				 
+			},
+			
+			
 			submitSelectInfo(){
 				
 				uni.request({
@@ -844,7 +862,7 @@
 			
 			talk_fun(user_id){
 				uni.navigateTo({
-					url:'../talk/talk?to_user_id=' + user_id
+					url:'../talk/talk?to_user_id=' + user_id + '&user_my_id=' + this.user_my_id
 				})
 			},
 			

@@ -713,7 +713,7 @@ var _default =
 {
   data: function data() {
     return {
-      user_my_id: '191',
+      user_my_id: null,
       mess_search_value: null,
 
       manageTalkPersons: null,
@@ -749,6 +749,7 @@ var _default =
     this.submitSelectAddMe(),
     this.submitSelectAddOther(),
     this.submitSelectInfo(),
+    this.submitSelectMyUserId(),
 
     this.getUrl();
 
@@ -874,27 +875,44 @@ var _default =
       console.log("这里进行内容搜索:" + this.mess_search_value);
     },
 
-    submitSelectInfo: function submitSelectInfo() {var _this = this;
+
+    submitSelectMyUserId: function submitSelectMyUserId() {var _this = this;
+
+      uni.getStorage({
+
+        key: 'user_my_id',
+        success: function success(res) {
+          console.log("这个数据是这样的吧" + res.data);
+          _this.user_my_id = res.data;
+          console.log("user_my_id这个数据是这样的吧" + _this.user_my_id);
+        } });
+
+
+
+    },
+
+
+    submitSelectInfo: function submitSelectInfo() {var _this2 = this;
 
       uni.request({
         url: 'http://localhost/AppSelectInfo?user_id=191',
         method: 'GET',
         success: function success(res) {
-          _this.personalInfo = res.data;
+          _this2.personalInfo = res.data;
         } });
 
 
     },
 
 
-    submitSelectTalkPerson: function submitSelectTalkPerson() {var _this2 = this;
+    submitSelectTalkPerson: function submitSelectTalkPerson() {var _this3 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectTalkPerson?user_id=191',
         method: 'GET',
         success: function success(res) {
 
           console.log(res.data);
-          _this2.manageTalkPersons = res.data;
+          _this3.manageTalkPersons = res.data;
 
         } });
 
@@ -902,14 +920,14 @@ var _default =
 
     },
 
-    submitSelectContent: function submitSelectContent() {var _this3 = this;
+    submitSelectContent: function submitSelectContent() {var _this4 = this;
       uni.request({
         url: 'http://localhost/AppSelectContent',
         method: 'GET',
         success: function success(res) {
 
           console.log(res.data);
-          _this3.infoContents = res.data;
+          _this4.infoContents = res.data;
 
         } });
 
@@ -919,12 +937,12 @@ var _default =
     },
 
 
-    submitSelectFriend: function submitSelectFriend() {var _this4 = this;
+    submitSelectFriend: function submitSelectFriend() {var _this5 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectFriend?user_id=191',
         method: 'GET',
         success: function success(res) {
-          _this4.allFriends = res.data;
+          _this5.allFriends = res.data;
         } });
 
 
@@ -932,7 +950,7 @@ var _default =
 
     },
 
-    submitSelectAddMe: function submitSelectAddMe() {var _this5 = this;
+    submitSelectAddMe: function submitSelectAddMe() {var _this6 = this;
       uni.request({
         url: 'http://localhost/AppSelectAddMe?user_id=191',
         method: 'GET',
@@ -940,7 +958,7 @@ var _default =
         success: function success(res) {
 
           console.log(res.data);
-          _this5.addMeFriends = res.data;
+          _this6.addMeFriends = res.data;
 
         } });
 
@@ -949,7 +967,7 @@ var _default =
 
     },
 
-    submitSelectAddOther: function submitSelectAddOther() {var _this6 = this;
+    submitSelectAddOther: function submitSelectAddOther() {var _this7 = this;
       uni.request({
         url: 'http://localhost/AppSelectAddOther?user_id=191',
         method: 'GET',
@@ -957,7 +975,7 @@ var _default =
         success: function success(res) {
 
           console.log(res.data);
-          _this6.addOtherFriends = res.data;
+          _this7.addOtherFriends = res.data;
 
         } });
 
@@ -979,7 +997,7 @@ var _default =
 
     talk_fun: function talk_fun(user_id) {
       uni.navigateTo({
-        url: '../talk/talk?to_user_id=' + user_id });
+        url: '../talk/talk?to_user_id=' + user_id + '&user_my_id=' + this.user_my_id });
 
     },
 
@@ -1056,13 +1074,13 @@ var _default =
 
     },
 
-    submitSelectMess: function submitSelectMess(user_id) {var _this7 = this;
+    submitSelectMess: function submitSelectMess(user_id) {var _this8 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectMess?user_id=' + '191' + '&to_user_id=' + user_id,
         method: 'GET',
         success: function success(res) {
           console.log(res.data);
-          _this7.messDetail = res.data;
+          _this8.messDetail = res.data;
 
 
         } });

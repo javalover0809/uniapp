@@ -347,37 +347,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
 
-      infoContents: null };
+      infoContents: null,
+      personalInfo: null };
 
 
   },
 
   mounted: function mounted() {
 
-    this.submitSelectContent();
+    this.submitSelectContent(),
+    this.submitSelectInfo();
 
   },
 
   methods: {
 
-    submitSelectContent: function submitSelectContent() {var _this = this;
+    submitSelectInfo: function submitSelectInfo() {var _this = this;
+
+      uni.request({
+        url: 'http://localhost/AppSelectInfo?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id,
+        method: 'GET',
+        success: function success(res) {
+          _this.personalInfo = res.data;
+        } });
+
+
+    },
+
+
+    submitSelectContent: function submitSelectContent() {var _this2 = this;
       uni.request({
         url: 'http://www.wetalk.ltd/AppSelectContent',
         method: 'GET',
         success: function success(res) {
 
           console.log(res.data);
-          _this.infoContents = res.data;
+          _this2.infoContents = res.data;
 
         } });
-
-
-
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

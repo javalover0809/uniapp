@@ -8,7 +8,7 @@
 		<!--空格-->
 		<view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
 		
-		<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+		<!-- <view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 			
 			<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 				
@@ -16,7 +16,7 @@
 					
 			</view>	
 			
-		</view>
+		</view> -->
 
 				<view v-for=" (infoPerson,index) in manageTalkPersons">
 					
@@ -55,10 +55,12 @@
 	
 	<view v-else-if="friend_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
 
-				<!--空格-->
-			    <view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
+					<!--空格-->
+					<view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
+						
+					</view>
 			    
-					<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+					<!-- <view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 						
 						<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 							
@@ -66,7 +68,7 @@
 								
 						</view>	
 						
-					</view>
+					</view> -->
 					
 					<view style="width:100%;min-height:50px;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
 						
@@ -126,14 +128,14 @@
 						
 					</view>
 					
-					<view style="width:80%;height:50px;background-color:white;float:left">
+					<view v-on:click="to_info_page(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
 							
 							<view style="width:50%;min-height:25px;background-color:white;float:left">
 								<p>	 {{	infoPerson.username  }} </p>
 							</view>
-							<view v-on:click="to_info_page" style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-								<p style="font-size:10px;"> 查看主页 </p>
+							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
+								<!-- <p style="font-size:10px;"> 查看主页 </p> -->
 							</view>
 								
 						</view>
@@ -141,7 +143,7 @@
 							<view style="width:50%;min-height:25px;background-color:white;float:left">
 							</view>
 							<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-								<p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p>
+								<!-- <p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p> -->
 							</view>
 						</view>
 					</view>
@@ -160,14 +162,14 @@
 				
 			</view>
 			
-			<view style="width:80%;height:50px;background-color:white;float:left">
+			<view v-on:click="to_info_page(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
 				<view style="width:80%;min-height:25px;background-color:white;float:left">
 					
 					<view style="width:50%;min-height:25px;background-color:white;float:left">
 						<p>	 {{	infoPerson.username  }} </p>
 					</view>
 					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-						<p style="font-size:10px;"> 查看主页 </p>
+						<!-- <p style="font-size:10px;"> 查看主页 </p> -->
 					</view>
 						
 				</view>
@@ -175,7 +177,7 @@
 					<view style="width:50%;min-height:25px;background-color:white;float:left">
 					</view>
 					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-						<p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p>
+						<!-- <p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p> -->
 					</view>
 				</view>
 			</view>
@@ -194,14 +196,14 @@
 				
 			</view>
 			
-			<view style="width:80%;height:50px;background-color:white;float:left">
+			<view v-on:click="to_info_page(infoPerson.user_id)" style="width:80%;height:50px;background-color:white;float:left">
 				<view style="width:80%;min-height:25px;background-color:white;float:left">
 					
 					<view style="width:50%;min-height:25px;background-color:white;float:left">
 						<p>	 {{	infoPerson.username  }} </p>
 					</view>
 					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-						<p style="font-size:10px;"> 查看主页 </p>
+						<!-- <p style="font-size:10px;"> 查看主页 </p> -->
 					</view>
 						
 				</view>
@@ -209,7 +211,7 @@
 					<view style="width:50%;min-height:25px;background-color:white;float:left">
 					</view>
 					<view style="width:50%;min-height:25px;background-color:white;float:left;align-items:center;justify-content:cneter;display:flex">
-						<p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p>
+						<!-- <p style="color:red;font-size:10px;" v-on:click="to_talk_page(infoPerson.user_id)"> 发送消息 </p> -->
 					</view>
 				</view>
 			</view>
@@ -227,7 +229,7 @@
 			    <!--空格-->
 			    <view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
 			    
-				<view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
+				<!-- <view style="width:100%;height:50px;background-color:rgb(234,234,236);float:left;align-items:center;justify-content:center;display:flex">
 					
 					<view style="width:90%;height:40px;background-color:white;float:left;align-items:center;justify-content:center;display:flex">
 						
@@ -235,7 +237,7 @@
 							
 					</view>	
 					
-				</view>
+				</view> -->
 				
 				<view v-for=" (content,index) in infoContents">
 					
@@ -307,9 +309,9 @@
 	
 	<view v-else-if="my_flag" style="position:relative;bottom:70px;background-color:white;width:100%;height:100%;min-height:662px">
 		
-			<view style="width:100%;height:70px;background-color:red;float:left;align-items:center;justify-content:center;display:flex"></view>
+			<view style="width:100%;height:70px;background-color:white;float:left;align-items:center;justify-content:center;display:flex"></view>
 			
-			<view style="width:100%;min-height:80px;height:auto;background-color:red;float:left;align-items:center;justify-content:center;display:flex">
+			<view style="width:100%;min-height:80px;height:auto;background-color:white;float:left;">
 				
 				<view style="width:22%;height:180px;background-color:white;float:left;">
 					<view style="width:100%;height:80px;background-color:white;float:left;">
@@ -318,28 +320,9 @@
 					<view style="width:100%;height:100px;background-color:white;float:left;">
 					  <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">	
 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
-							<p style="font-size:14px;color:white;"> 发送消息 </p>
+							<p style="font-size:14px;color:white;"> 编辑资料 </p>
 						</view>	
-					 </view>	
-					 
-					 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
-					 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
-					 							<p style="font-size:14px;color:white;"> 戳一下 </p>
-					 						</view>	
-					 </view>	
-					 
-					 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
-					 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
-					 							<p style="font-size:14px;color:white;"> 添加好友 </p>
-					 						</view>	
-					 </view>	
-					 
-					 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
-					 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
-					 							<p style="font-size:14px;color:white;"> 屏蔽 </p>
-					 						</view>	
-					 </view>	
-				
+					 </view>
 					</view>
 				</view>
 				
@@ -399,7 +382,9 @@
 							 {{ personalInfo.student_type }} 
 							</p>
 						</view>
-					</view>					
+					</view>	
+		
+									
 				</view>
 				
 			</view>
@@ -529,10 +514,10 @@
 	
 	<view v-if="news_flag == true"  style="position:fixed;bottom:100px;left:300px;background-color:white;width:20%;height:60px;border-radius:100px;align-items:center;justify-content:center;display:flex;">
 		<p v-on:click="publish_content">发布</p>
-		<p @click="vibrate">振动</p>
+<!-- 		<p @click="vibrate">振动</p>
 		<p v-on:click="getLocation">定位</p>
 		<p v-on:click="setData('user_my_id','191')">写入</p>
-		<p v-on:click="getData('user_my_id')">读出</p>
+		<p v-on:click="getData('user_my_id')">读出</p> -->
 	</view>
 	
 	
@@ -589,10 +574,10 @@
 				addMeFriends: null,
 				addOtherFriends: null,
 				
-				mess_flag: true,
+				mess_flag: false,
 				friend_flag: false,
 				news_flag: false,
-				my_flag: false,
+				my_flag: true,
 				
 				allFriend_white_flag: false,
 				allFriend_grey_flag: true,
@@ -711,10 +696,10 @@
 				this.submitSelectAddMe()
 			},
 			
-			to_info_page(){
+			to_info_page(user_id){
 				
 				uni.navigateTo({
-					url:'../info/info'
+					url:'../info/info?to_user_id=' + user_id
 				})
 				
 			},
@@ -730,7 +715,7 @@
 			publish_content(){
 				
 				uni.navigateTo({
-					url:'../publish/publish'
+					url:'../publish/publish?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.user_my_id 
 				})
 				
 			},
@@ -758,7 +743,7 @@
 			
 			
 			submitSelectInfo(){
-				
+	
 				uni.request({
 					url:'http://localhost/AppSelectInfo?user_id=191',
 					method:'GET',

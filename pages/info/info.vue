@@ -7,7 +7,7 @@
 					
 					<view style="width:22%;height:180px;background-color:white;float:left;">
 						<view style="width:100%;height:80px;background-color:white;float:left;">
-							<image src="http://www.wetalk.ltd/Users/Oraida/Downloads/test/test/WechatIMG8.jpeg" style="border-radius:50%;width:80px;height:80px"></image>
+							<image v-bind:src="[ 'http://www.wetalk.ltd/' + personalInfo.head_url ]" style="border-radius:50%;width:80px;height:80px"></image>
 						</view>
 						<view style="width:100%;height:100px;background-color:white;float:left;">
 						  <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">	
@@ -16,7 +16,7 @@
 							</view>	
 						 </view>	
 						 
-						 <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
+						 <!-- <view style="width:100%;height:25px;background-color:white;float:left;align-items:center;justify-content:center;display:flex;">
 						 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
 						 							<p style="font-size:14px;color:white;"> 戳一下 </p>
 						 						</view>	
@@ -32,7 +32,7 @@
 						 						<view style="width:80%;height:20px;background-color:rgb(59,89,152);float:left;align-items:center;justify-content:center;display:flex;border-bottom-right-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-top-left-radius:5px;">
 						 							<p style="font-size:14px;color:white;"> 屏蔽 </p>
 						 						</view>	
-						 </view>	
+						 </view>	 -->
 					
 						</view>
 					</view>
@@ -44,7 +44,7 @@
 								 <p style="font-size:14px;color:grey;display:inline;"> 姓名: </p>
 							</view>
 							<view style="background-color:white;width:75%;height:30px;float:left;">
-								<p style="font-size:14px;display:inline;"> 唐国洁 </p>
+								<p style="font-size:14px;display:inline;"> {{ personalInfo.username }} </p>
 							</view>
 						</view>	
 						
@@ -54,7 +54,7 @@
 								 <p style="font-size:14px;color:grey;display:inline;"> 性别: </p>
 							</view>
 							<view style="background-color:white;width:75%;height:30px;float:left;">
-								<p style="font-size:14px;display:inline;"> 男生 </p>
+								<p style="font-size:14px;display:inline;"> {{ personalInfo.sex_name }} </p>
 							</view>
 						</view>	
 						
@@ -63,7 +63,11 @@
 								 <p style="font-size:14px;color:grey;display:inline;"> 生日: </p>
 							</view>
 							<view style="background-color:white;width:75%;height:30px;float:left;">
-								<p style="font-size:14px;display:inline;"> 1994年 9月 24日 </p>
+								<p style="font-size:14px;display:inline;"> 
+								{{ personalInfo.birth_year }} 年
+								{{ personalInfo.birth_month }} 月
+								{{ personalInfo.birth_day }} 日
+								</p>
 							</view>
 						</view>	
 						
@@ -72,20 +76,26 @@
 								 <p style="font-size:14px;color:grey;display:inline;">  感情状态: </p>
 							</view>
 							<view style="background-color:white;width:75%;height:30px;float:left;">
-								<p style="font-size:14px;display:inline;"> 单身 </p>
+								<p style="font-size:14px;display:inline;"> 
+								{{ personalInfo.status_name }}
+								</p>
 							</view>
 						</view>	
 						
-						<view style="background-color:white;width:100%;height:auto;float:left;">
+						<view v-if="personalInfo.university != null" style="background-color:white;width:100%;height:auto;float:left;">
 							<view style="background-color:white;width:25%;height:30px;float:left;">
 								 <p style="font-size:14px;color:grey;display:inline;">  大学: </p>
 							</view>
 							<view style="background-color:white;width:75%;height:30px;float:left;">
-								<p style="font-size:14px;display:inline;"> 北京交通大学 2018级 硕士 </p>
+								<p style="font-size:14px;display:inline;"> 
+								 {{ personalInfo.university }} 
+								 {{ personalInfo.student_grade }} 
+								 {{ personalInfo.student_type }} 
+								</p>
 							</view>
 						</view>	
-				
-						
+							
+										
 					</view>
 					
 				</view>
@@ -222,18 +232,33 @@
 		data() {
 			return {
 				
-				infoContents:null
+				infoContents: null,
+				personalInfo: null
 				
 			}
 		},
 		
 		mounted () {
 		  
-			this.submitSelectContent()
+			this.submitSelectContent(),
+			this.submitSelectInfo()
 				
 		   },
 				
 		methods: {
+			
+			submitSelectInfo(){
+				
+				uni.request({
+					url:'http://localhost/AppSelectInfo?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.to_user_id ,
+					method:'GET',
+					success:(res) => {
+						this.personalInfo = res.data
+					}
+				})
+				
+			},
+			
 			
 			submitSelectContent(){
 							    uni.request({
@@ -245,11 +270,8 @@
 										 this.infoContents = res.data		 
 															
 									}
-									
-									
-							    })
-							  
-			 }
+							})		  
+					}
 			
 		}
 	}

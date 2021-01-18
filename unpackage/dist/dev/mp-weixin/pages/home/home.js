@@ -694,21 +694,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
@@ -724,10 +709,10 @@ var _default =
       addMeFriends: null,
       addOtherFriends: null,
 
-      mess_flag: true,
+      mess_flag: false,
       friend_flag: false,
       news_flag: false,
-      my_flag: false,
+      my_flag: true,
 
       allFriend_white_flag: false,
       allFriend_grey_flag: true,
@@ -846,10 +831,10 @@ var _default =
       this.submitSelectAddMe();
     },
 
-    to_info_page: function to_info_page() {
+    to_info_page: function to_info_page(user_id) {
 
       uni.navigateTo({
-        url: '../info/info' });
+        url: '../info/info?to_user_id=' + user_id });
 
 
     },
@@ -865,7 +850,7 @@ var _default =
     publish_content: function publish_content() {
 
       uni.navigateTo({
-        url: '../publish/publish' });
+        url: '../publish/publish?user_id=' + getCurrentPages()[getCurrentPages().length - 1].options.user_my_id });
 
 
     },

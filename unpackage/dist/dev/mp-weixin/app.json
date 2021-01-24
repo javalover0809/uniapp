@@ -13,7 +13,8 @@
     "pages/content/content",
     "pages/publish/publish",
     "pages/allFriend/allFriend",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/trans/trans"
   ],
   "subPackages": [],
   "window": {
@@ -21,6 +22,12 @@
     "navigationBarTitleText": "hello",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.4",
+      "provider": "wx069ba97219f66d99"
+    }
   },
   "usingComponents": {}
 }

@@ -26,8 +26,6 @@
 				
 					</view>
 					
-					
-					
 					<view v-on:click="talk_fun(infoPerson.user_id)" style="width:80%;min-height:50px;height:auto;background-color:white;float:left">
 						<view style="width:80%;min-height:25px;background-color:white;float:left">
 							
@@ -85,7 +83,6 @@
 							
 						</view>	
 						</view>
-						
 						
 						<view v-on:click="addOtherFriend_fun" style="width:33.33%;min-height:50px;background-color:white;height:auto;float:left;">
 						<view v-if="addOtherFriend_white_flag" style="width:100%;min-height:50px;background-color:white;height:auto;float:left;align-items:center;justify-content:center;display:flex">

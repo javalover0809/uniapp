@@ -1,0 +1,4 @@
+
+.voicebtn{height:130rpx;display: block;width:130rpx;line-height:130rpx;-webkit-border-radius: 65rpx;border-radius: 65rpx;font-size: 50rpx;position: absolute;top:1060rpx;left:310rpx;}
+.voicepad{height: 250rpx;width:680rpx;background: #fff;margin: 30rpx auto;-webkit-border-radius: 8rpx;border-radius: 8rpx;color: #CCCCCC;padding:20rpx;font-size: 35rpx;}  
+

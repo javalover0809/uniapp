@@ -48,7 +48,6 @@
             }
             
         }
-      
         ,{
             "path" : "pages/photo/photo",
             "style" :                                                                                    
@@ -124,6 +123,15 @@
         }
         ,{
             "path" : "pages/info/info",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/trans/trans",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
